@@ -9,7 +9,7 @@ export default function NavBar() {
   return (
     <>
       <Stack>
-        <Flex align="center" gap="2" pt="2" pd="0" pl="2" pr="2">
+        <Flex align="center" gap="2" pt="2" pl="2" pr="2">
           <Box width={88}>
             <Link href="">
               <Button p="0" variant="ghost">
