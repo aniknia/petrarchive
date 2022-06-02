@@ -1,5 +1,5 @@
-import Item from "../components/item";
+import Main from "../components/main";
 
 export default function Home() {
-  return <Item name="Petr" author="Petr" />;
+  return <Main />;
 }
