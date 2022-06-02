@@ -1,3 +1,5 @@
+import Item from "../components/item";
+
 export default function Home() {
-  return <></>;
+  return <Item name="Petr" author="Petr" />;
 }
