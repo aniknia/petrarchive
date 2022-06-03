@@ -6,7 +6,7 @@ export default function Meta() {
       <Head>
         <title>Petr Archive</title>
         <meta name="description" content="An archive of the UCI Petrs" />
-        <link rel="icon" href="images/petr.ico" />
+        <link rel="icon" href="favicon.ico" />
       </Head>
     </>
   );
