@@ -4,11 +4,12 @@ import { useEffect } from "react";
 
 export default function Main() {
   useEffect(() => {
-    fetch(process.env.REACT_APP_API_HOST + "/api/petrs")
+    fetch("https://api.petrarchive.io/api/petrs")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
       });
+    console.log(process.env.REACT_APP_API_HOST);
   }, []);
 
   return (
