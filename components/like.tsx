@@ -4,7 +4,7 @@ import { HeartFillIcon } from "@primer/octicons-react";
 export default function Like(props) {
   return (
     <>
-      <IconButton variant="unstyled" icon={<HeartFillIcon size={16} />} />
+      <IconButton icon={<HeartFillIcon size={16} />} />
       <Text>{props.likes}</Text>
     </>
   );
