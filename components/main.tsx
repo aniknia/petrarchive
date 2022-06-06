@@ -1,20 +1,20 @@
 import { Flex } from "@chakra-ui/react";
 import Item from "./item";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export default function Main() {
+  const [petrs, setPetrs] = useState([]);
   useEffect(() => {
-    fetch("https://api.petrarchive.io/api/petrs")
+    fetch("https://api.petrarchive.io/api/petrs?populate=*")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        setPetrs(data.data.map((petr) => <Item key={petr.id} petr={petr} />));
       });
-    console.log(process.env.REACT_APP_API_HOST);
   }, []);
 
   return (
     <Flex justify="space-around" wrap="wrap">
-      <Item name="Petr" author="Petr" />
+      {petrs}
     </Flex>
   );
 }

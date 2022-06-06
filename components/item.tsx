@@ -13,7 +13,6 @@ import {
   Text,
 } from "@chakra-ui/react";
 import Image from "../node_modules/next/image";
-import petr from "../public/images/petr.png";
 
 export default function Item(props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -29,20 +28,30 @@ export default function Item(props) {
         height={371.5}
       >
         <Box width={330} pt="5" pb="5" pr="5" pl="5">
-          <Image src={petr} alt="Petr" width={320} height={320} />
-          <Text width={290}>{props.name}</Text>
-          <Text width={290}>Creator: {props.author}</Text>
+          <Image
+            src={props.petr.attributes.image.data[0].attributes.url}
+            alt="Petr"
+            width={320}
+            height={320}
+          />
+          <Text width={290}>{props.petr.attributes.name}</Text>
+          <Text width={290}>Creator: {props.petr.attributes.author}</Text>
         </Box>
       </Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>{props.name}</ModalHeader>
+          <ModalHeader>{props.petr.attributes.name}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Flex align="center" justify="center">
-              <Image src={petr} alt="Petr" width={320} height={320} />
+              <Image
+                src={props.petr.attributes.image.data[0].attributes.url}
+                alt="Petr"
+                width={320}
+                height={320}
+              />
             </Flex>
           </ModalBody>
 
