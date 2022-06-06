@@ -7,7 +7,7 @@ import {
   IconButton,
 } from "@chakra-ui/react";
 import PetrImage from "./petrimage";
-import { HeartFillIcon } from "@primer/octicons-react";
+import Like from "./like";
 
 export default function Item(props) {
   const backgroundColor = useColorModeValue(
@@ -38,11 +38,7 @@ export default function Item(props) {
             {props.petr.attributes.name}
           </Text>
           <Spacer />
-          <IconButton
-            aira-label="Like Petr"
-            icon={<HeartFillIcon size={24} />}
-            isRound={true}
-          />
+          <Like likes={props.petr.attributes.likes} />
         </HStack>
       </Box>
     </>
