@@ -1,11 +1,20 @@
-import { useColorModeValue, VStack, HStack, Box, Text } from "@chakra-ui/react";
+import {
+  useColorModeValue,
+  Spacer,
+  HStack,
+  Box,
+  Text,
+  IconButton,
+} from "@chakra-ui/react";
 import PetrImage from "./petrimage";
+import Like from "./like";
 
 export default function Item(props) {
   const backgroundColor = useColorModeValue(
     "#EDF2F7",
     "rgba(255, 255, 255, 0.08)"
   );
+
   return (
     <>
       <Box
@@ -17,13 +26,19 @@ export default function Item(props) {
       >
         <PetrImage src={props.petr.attributes.image.data[0].attributes.url} />
 
-        <HStack justify="space-between" p="2">
-          <VStack align="baseline">
-            <Text fontWeight="semibold" noOfLines={1}>
-              {props.petr.attributes.name}
-            </Text>
-            <Text noOfLines={1}>Creator: {props.petr.attributes.author}</Text>
-          </VStack>
+        <HStack
+          justify="space-between"
+          alignItems="center"
+          pb="2"
+          pr="2"
+          pl="2"
+          m="0"
+        >
+          <Text fontWeight="semibold" noOfLines={1}>
+            {props.petr.attributes.name}
+          </Text>
+          <Spacer />
+          <Like likes={props.petr.attributes.likes} />
         </HStack>
       </Box>
     </>
