@@ -1,14 +1,5 @@
-import {
-  useColorModeValue,
-  VStack,
-  HStack,
-  Box,
-  Text,
-  IconButton,
-} from "@chakra-ui/react";
-import Like from "./like";
+import { useColorModeValue, VStack, HStack, Box, Text } from "@chakra-ui/react";
 import PetrImage from "./petrimage";
-import { HeartFillIcon } from "@primer/octicons-react";
 
 export default function Item(props) {
   const backgroundColor = useColorModeValue(
@@ -32,10 +23,6 @@ export default function Item(props) {
               {props.petr.attributes.name}
             </Text>
             <Text noOfLines={1}>Creator: {props.petr.attributes.author}</Text>
-          </VStack>
-          <VStack>
-            <IconButton icon={<HeartFillIcon size={16} />} height="28px" />
-            <Text height="28px">{props.petr.attributes.likes}</Text>
           </VStack>
         </HStack>
       </Box>
