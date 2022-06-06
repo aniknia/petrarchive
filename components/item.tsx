@@ -11,7 +11,9 @@ export default function Item(props) {
       <Box
         width={320}
         m="15"
+        borderWidth="1px"
         borderRadius="lg"
+        borderColor={backgroundColor}
         backgroundColor={backgroundColor}
         overflow="hidden"
       >
