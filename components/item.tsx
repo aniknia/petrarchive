@@ -1,72 +1,48 @@
 import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  Button,
-  useDisclosure,
+  useColorModeValue,
+  VStack,
+  HStack,
   Box,
-  Flex,
   Text,
+  IconButton,
 } from "@chakra-ui/react";
-import Image from "../node_modules/next/image";
+import Like from "./like";
+import PetrImage from "./petrimage";
+import { HeartFillIcon } from "@primer/octicons-react";
 
 export default function Item(props) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const backgroundColor = useColorModeValue(
+    "#EDF2F7",
+    "rgba(255, 255, 255, 0.08)"
+  );
   return (
     <>
-      <Button
-        onClick={onOpen}
-        display="block"
-        colorScheme="gray"
-        p="0"
+      <Box
+        width={320}
         m="15"
-        width={330}
-        height={371.5}
+        borderRadius="lg"
+        backgroundColor={backgroundColor}
+        overflow="hidden"
       >
-        <Box width={330} pt="5" pb="5" pr="5" pl="5">
-          <Image
-            src={props.petr.attributes.image.data[0].attributes.url}
-            alt="Petr"
-            width={320}
-            height={320}
-          />
-          <Text width={290}>{props.petr.attributes.name}</Text>
-          <Text width={290}>Creator: {props.petr.attributes.author}</Text>
-        </Box>
-      </Button>
+        <PetrImage src={props.petr.attributes.image.data[0].attributes.url} />
 
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>{props.petr.attributes.name}</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <Flex align="center" justify="center">
-              <Image
-                src={props.petr.attributes.image.data[0].attributes.url}
-                alt="Petr"
-                width={320}
-                height={320}
-              />
-            </Flex>
-          </ModalBody>
-
-          <ModalFooter>
-            <Button
-              variant="outline"
-              colorScheme="gray"
-              mr={3}
-              onClick={onClose}
-            >
-              Close
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+        <HStack justify="space-between" p="2">
+          <VStack align="baseline">
+            <Text fontWeight="semibold" noOfLines={1}>
+              {props.petr.attributes.name}
+            </Text>
+            <Text noOfLines={1}>Creator: {props.petr.attributes.author}</Text>
+          </VStack>
+          <VStack>
+            <IconButton
+              variant="unstyled"
+              icon={<HeartFillIcon size={16} />}
+              height="28px"
+            />
+            <Text height="28px">{props.petr.attributes.likes}</Text>
+          </VStack>
+        </HStack>
+      </Box>
     </>
   );
 }
