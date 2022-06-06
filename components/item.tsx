@@ -38,7 +38,11 @@ export default function Item(props) {
             {props.petr.attributes.name}
           </Text>
           <Spacer />
-          <IconButton icon={<HeartFillIcon size={24} />} isRound={true} />
+          <IconButton
+            aira-label="Like Petr"
+            icon={<HeartFillIcon size={24} />}
+            isRound={true}
+          />
         </HStack>
       </Box>
     </>
