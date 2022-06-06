@@ -34,11 +34,7 @@ export default function Item(props) {
             <Text noOfLines={1}>Creator: {props.petr.attributes.author}</Text>
           </VStack>
           <VStack>
-            <IconButton
-              variant="unstyled"
-              icon={<HeartFillIcon size={16} />}
-              height="28px"
-            />
+            <IconButton icon={<HeartFillIcon size={16} />} height="28px" />
             <Text height="28px">{props.petr.attributes.likes}</Text>
           </VStack>
         </HStack>
