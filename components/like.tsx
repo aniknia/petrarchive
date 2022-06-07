@@ -1,6 +1,6 @@
 import { IconButton } from "@chakra-ui/react";
 import { HeartFillIcon } from "@primer/octicons-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CountUp from "react-countup";
 
 export default function Like(props) {
@@ -8,11 +8,11 @@ export default function Like(props) {
   const [lastLike, setLastLike] = useState(0);
   const [duration, setDuration] = useState(1.5);
 
-  useEffect(() => {
+  function increment() {
+    setLastLike(likes);
     setLikes(likes + 1);
     setDuration(0.1);
-    console.log(likes);
-  }, [lastLike]);
+  }
 
   return (
     <>
@@ -23,7 +23,7 @@ export default function Like(props) {
         aria-label="Like Petr"
         icon={<HeartFillIcon size={24} />}
         isRound={true}
-        onClick={() => setLastLike(likes)}
+        onClick={() => increment()}
       />
     </>
   );
