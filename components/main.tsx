@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 export default function Main() {
   const [petrs, setPetrs] = useState([]);
   useEffect(() => {
-    fetch("https://api.petrarchive.io/api/petrs?populate=*")
+    fetch(process.env.API_HOST + "/api/petrs?populate=*")
       .then((response) => response.json())
       .then((data) => {
         setPetrs(data.data.map((petr) => <Item key={petr.id} petr={petr} />));
