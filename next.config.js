@@ -8,6 +8,7 @@ const nextConfig = {
   },
   env: {
     API_HOST: process.env.API_HOST,
+    API_KEY: process.enc.API_KEY,
   },
 };
 module.exports = nextConfig;
