@@ -11,13 +11,11 @@ export default function NavBar() {
       <Stack>
         <Flex align="center" gap="2" pt="2" pl="2" pr="2">
           <Box width={88}>
-            <Link href="">
-              <Button p="0" variant="ghost">
-                <a>
-                  <PlusIcon size={24} />
-                </a>
-              </Button>
-            </Link>
+            <NavModal
+              button={<QuestionIcon size={24} />}
+              title="Info"
+              body="This is a collection of many of the Petrs on campus! Here you can like your favourite Petr showing your love for our schools Petr addiction."
+            />
           </Box>
           <Spacer />
           <Box>
@@ -25,11 +23,6 @@ export default function NavBar() {
           </Box>
           <Spacer />
           <Box>
-            <NavModal
-              button={<QuestionIcon size={24} />}
-              title="Info"
-              body=""
-            />
             <ColorModeSwitcher />
           </Box>
         </Flex>
