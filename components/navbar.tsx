@@ -14,7 +14,7 @@ export default function NavBar() {
             <NavModal
               button={<QuestionIcon size={24} />}
               title="Info"
-              body="This is a collection of many of the Petrs on campus! Here you can like your favourite Petr showing your love for our schools Petr addiction."
+              body="Like your favourite Petr and show your love for our schools Petr addiction."
             />
           </Box>
           <Spacer />
