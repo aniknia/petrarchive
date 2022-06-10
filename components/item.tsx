@@ -1,13 +1,5 @@
-import {
-  useColorModeValue,
-  Spacer,
-  HStack,
-  Box,
-  Text,
-  IconButton,
-} from "@chakra-ui/react";
+import { useColorModeValue, Spacer, HStack, Box, Text } from "@chakra-ui/react";
 import PetrImage from "./petrimage";
-import Like from "./like";
 
 export default function Item(props) {
   const backgroundColor = useColorModeValue(
