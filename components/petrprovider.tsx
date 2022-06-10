@@ -58,7 +58,6 @@ export default function PetrProvider(props) {
 
   useEffect(() => {
     constructor();
-    console.log(petrs);
   }, []);
 
   return (
