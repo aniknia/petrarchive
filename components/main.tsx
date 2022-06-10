@@ -1,6 +1,6 @@
 import { Flex } from "@chakra-ui/react";
 import Item from "./item";
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 import { PetrContext } from "./petrprovider";
 
 export default function Main() {
