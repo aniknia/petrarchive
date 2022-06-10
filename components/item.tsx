@@ -24,7 +24,7 @@ export default function Item(props) {
         backgroundColor={backgroundColor}
         overflow="hidden"
       >
-        <PetrImage src={props.petr.attributes.image.data[0].attributes.url} />
+        <PetrImage src={props.petr.image} />
 
         <HStack
           justify="space-between"
@@ -35,10 +35,10 @@ export default function Item(props) {
           m="0"
         >
           <Text fontWeight="semibold" noOfLines={1}>
-            {props.petr.attributes.name}
+            {props.petr.name}
           </Text>
           <Spacer />
-          <Like id={props.petr.id} likes={props.petr.attributes.likes} />
+          <Like id={props.petr.id} likes={props.petr.likes} />
         </HStack>
       </Box>
     </>

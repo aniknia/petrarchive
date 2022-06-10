@@ -1,13 +1,16 @@
 import { ChakraProvider, theme } from "@chakra-ui/react";
 import Layout from "../components/layout";
+import PetrProvider from "../components/petrprovider";
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
       <ChakraProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <PetrProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </PetrProvider>
       </ChakraProvider>
     </>
   );
