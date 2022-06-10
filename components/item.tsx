@@ -38,7 +38,6 @@ export default function Item(props) {
             {props.petr.name}
           </Text>
           <Spacer />
-          <Like id={props.petr.id} likes={props.petr.likes} />
         </HStack>
       </Box>
     </>
