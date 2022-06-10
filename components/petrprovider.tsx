@@ -6,6 +6,7 @@ class Petr {
   author: string;
   likes: number;
   image: string;
+  tags: Array<string>;
 }
 
 export const PetrContext = createContext({
@@ -19,6 +20,7 @@ export const PetrContext = createContext({
 
 export default function PetrProvider(props) {
   const [petrs, setPetrs] = useState();
+  const regex = /[^\s]+/g;
 
   function constructor() {
     fetch(process.env.API_HOST + "/api/petrs?populate=*")
@@ -32,6 +34,9 @@ export default function PetrProvider(props) {
               author: item.attributes.author,
               likes: item.attributes.likes,
               image: item.attributes.image.data[0].attributes.url,
+              tags: item.attributes.tags
+                ? item.attributes.tags.match(regex)
+                : [],
             };
           })
         );
