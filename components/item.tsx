@@ -20,6 +20,7 @@ export default function Item(props) {
         borderRadius="lg"
         backgroundColor={backgroundColor}
         overflow="hidden"
+        onClick={() => setHover(!hover)}
         onMouseOver={() => setHover(true)}
         onMouseOut={() => setHover(false)}
       >
