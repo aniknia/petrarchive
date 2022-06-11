@@ -10,7 +10,7 @@ export default function Meta() {
         <script
           async
           defer
-          data-website-id="b1a27733-c8c6-44f8-b966-edbb68af40db"
+          data-website-id="a6b6959f-c861-405e-b3af-2114df1e0e7f"
           src="https://analytics.petrarchive.io/umami.js"
         ></script>
       </Head>
