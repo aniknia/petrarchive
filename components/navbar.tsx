@@ -19,8 +19,8 @@ export default function NavBar() {
           <Box>
             <NavModal
               button={<QuestionIcon size={24} />}
-              title="Info"
-              body="Like your favourite Petr and show your love for our schools Petr addiction."
+              title="Roadmap"
+              body="The first upcoming feature is sorting and searching petrs through name, author, or tags. After that a likes system will be implemented. And finally a submition system to make this site as community run as possible. Until then you can email your petrs to hello@petrarchive.io"
             />
           </Box>
           <Box>
