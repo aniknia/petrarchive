@@ -10,7 +10,7 @@ export default function Main() {
     <Flex justify="space-around" wrap="wrap">
       {value.petrs &&
         value.petrs
-          .sort((a, b) => b.created - a.created)
+          .sort((a, b) => b.created.getTime() - a.created.getTime())
           .map((item) => <Item key={item.id} petr={item} />)}
     </Flex>
   );
