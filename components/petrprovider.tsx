@@ -7,6 +7,8 @@ class Petr {
   likes: number;
   image: string;
   tags: Array<string>;
+  dropped: boolean;
+  created: Date;
 }
 
 export const PetrContext = createContext({
@@ -37,6 +39,8 @@ export default function PetrProvider(props) {
               tags: item.attributes.tags
                 ? item.attributes.tags.match(regex)
                 : [],
+              dropped: item.attributes.dropped,
+              created: new Date(item.attributes.created),
             };
           })
         );
