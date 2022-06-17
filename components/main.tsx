@@ -11,7 +11,11 @@ export default function Main() {
       {value.petrs &&
         value.petrs
           .sort((a, b) => b.created.getTime() - a.created.getTime())
-          .map((item) => <Item key={item.id} petr={item} />)}
+          .map((item) => {
+            if (item.dropped) {
+              return <Item key={item.id} petr={item} />;
+            }
+          })}
     </Flex>
   );
 }
