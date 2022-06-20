@@ -7,9 +7,10 @@ export default function Overlay(props) {
         display="inline-block"
         height={326}
         opacity={0.9}
+        pt="1"
+        pb="0"
         pr="2"
         pl="2"
-        pb="0"
         m="0"
       >
         <Text fontWeight="semibold">By: {props.petr.author}</Text>
