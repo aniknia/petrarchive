@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useColorModeValue, Spacer, HStack, Box, Text } from "@chakra-ui/react";
-import PetrImage from "./petrimage";
 import Overlay from "./overlay";
 import Underlay from "./underlay";
 
@@ -15,7 +14,7 @@ export default function Item(props) {
     <>
       <Box
         width={320}
-        height={358}
+        height={360}
         m="15"
         borderRadius="lg"
         backgroundColor={backgroundColor}
@@ -25,12 +24,26 @@ export default function Item(props) {
         onMouseOut={() => setHover(false)}
       >
         {hover ? (
-          <Overlay petr={props.petr} visibility={hover ? "vilible" : "hidden"}>
-            <Underlay petr={props.petr} />
-          </Overlay>
+          <Overlay
+            petr={props.petr}
+            visibility={hover ? "vilible" : "hidden"}
+          />
         ) : (
           <Underlay petr={props.petr} />
         )}
+        <HStack
+          justify="space-between"
+          alignItems="center"
+          pb="2"
+          pr="2"
+          pl="2"
+          m="0"
+        >
+          <Text fontWeight="semibold" noOfLines={1}>
+            {props.petr.name}
+          </Text>
+          <Spacer />
+        </HStack>
       </Box>
     </>
   );
