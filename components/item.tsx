@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useColorModeValue, Spacer, HStack, Box, Text } from "@chakra-ui/react";
 import Overlay from "./overlay";
 import Underlay from "./underlay";
+import Like from "./like";
 
 export default function Item(props) {
   const backgroundColor = useColorModeValue(
@@ -14,23 +15,27 @@ export default function Item(props) {
     <>
       <Box
         width={320}
-        height={360}
+        height={370}
         m="15"
         borderRadius="lg"
         backgroundColor={backgroundColor}
         overflow="hidden"
-        onClick={() => setHover(!hover)}
-        onMouseOver={() => setHover(true)}
-        onMouseOut={() => setHover(false)}
       >
-        {hover ? (
-          <Overlay
-            petr={props.petr}
-            visibility={hover ? "vilible" : "hidden"}
-          />
-        ) : (
-          <Underlay petr={props.petr} />
-        )}
+        <Box
+          onClick={() => setHover(!hover)}
+          onMouseOver={() => setHover(true)}
+          onMouseOut={() => setHover(false)}
+        >
+          {hover ? (
+            <Overlay
+              petr={props.petr}
+              visibility={hover ? "vilible" : "hidden"}
+            />
+          ) : (
+            <Underlay petr={props.petr} />
+          )}
+        </Box>
+
         <HStack
           justify="space-between"
           alignItems="center"
@@ -43,6 +48,7 @@ export default function Item(props) {
             {props.petr.name}
           </Text>
           <Spacer />
+          <Like likes={props.petr.likes} id={props.petr.id} />
         </HStack>
       </Box>
     </>
