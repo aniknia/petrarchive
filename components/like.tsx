@@ -23,7 +23,7 @@ export default function Like(props) {
     if (checkCookies(props.id)) {
       return getCookies(props.id)[props.id] === "true" ? true : false;
     } else {
-      setCookies(props.id, false);
+      setCookies(props.id, false, { sameSite: "lax" });
       return getCookies(props.id)[props.id] === "true" ? true : false;
     }
   }
@@ -32,15 +32,19 @@ export default function Like(props) {
     fetch(process.env.API_HOST + "/api/petrs/" + props.id)
       .then((response) => response.json())
       .then((data) => {
+        let body = JSON.stringify({
+          data: {
+            likes: (data.data.attributes.likes = likeState
+              ? data.data.attributes.likes + 1
+              : data.data.attributes.likes - 1),
+          },
+        });
         fetch(process.env.API_HOST + "/api/petrs/" + props.id, {
           method: "PUT",
-          body: JSON.stringify({
-            data: {
-              likes: (data.data.attributes.likes = likeState
-                ? data.data.attributes.likes + 1
-                : data.data.attributes.likes - 1),
-            },
-          }),
+          headers: {
+            Authorization: "Bearer " + process.env.API_KEY,
+          },
+          body: body,
         }).then((response) => response.json());
       });
   }
