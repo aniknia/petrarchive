@@ -47,8 +47,6 @@ export default function Item(props) {
           <Text fontWeight="semibold" noOfLines={1}>
             {props.petr.name}
           </Text>
-          <Spacer />
-          <Like likes={props.petr.likes} id={props.petr.id} />
         </HStack>
       </Box>
     </>
