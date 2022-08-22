@@ -14,6 +14,7 @@ import PetrProvider from "./petrprovider";
 // TODO: implement a cleaner cookies system
 
 export default function Like(props) {
+  const [lastLikes, setLastLikes] = useState(0);
   const [likes, setLikes] = useState(props.likes);
   const [likeState, setLikeState] = useState(verifyCookies());
   const [lastLikeState, setLastLikeState] = useState(verifyCookies());
@@ -52,6 +53,7 @@ export default function Like(props) {
   useEffect(() => {
     if (likeState !== lastLikeState) {
       updateLikes(likeState);
+      setLastLikes(likes);
       likeState ? setLikes(likes + 1) : setLikes(likes - 1);
       setCookies(props.id, likeState ? true : false);
       setLastLikeState(likeState);
@@ -61,7 +63,7 @@ export default function Like(props) {
 
   return (
     <>
-      <CountUp start={lastLikeState} end={likes} duration={duration} />
+      <CountUp start={lastLikes} end={likes} duration={duration} />
 
       <IconButton
         color={likeState ? "red" : "pink"}
