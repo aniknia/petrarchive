@@ -24,7 +24,7 @@ export default function Like(props) {
     if (checkCookies(props.id)) {
       return getCookies(props.id)[props.id] === "true" ? true : false;
     } else {
-      setCookies(props.id, false, { sameSite: "lax" });
+      setCookies(props.id, false, { sameSite: "Lax" });
       return getCookies(props.id)[props.id] === "true" ? true : false;
     }
   }
