@@ -35,6 +35,7 @@ export default function Like(props) {
       .then((data) => {
         let body = JSON.stringify({
           data: {
+            id: props.id,
             likes: (data.data.attributes.likes = likeState
               ? data.data.attributes.likes + 1
               : data.data.attributes.likes - 1),
@@ -44,6 +45,7 @@ export default function Like(props) {
           method: "PUT",
           headers: {
             Authorization: "Bearer " + process.env.API_KEY,
+            "Content-Type": "application/json",
           },
           body: body,
         }).then((response) => response.json());
