@@ -3,7 +3,6 @@ import { QuestionIcon, WorkflowIcon } from "@primer/octicons-react";
 import Link from "../node_modules/next/link";
 import { ColorModeSwitcher } from "./colormodeswitcher";
 import Logo from "./logo";
-import NavModal from "./navmodal";
 
 export default function NavBar() {
   return (
