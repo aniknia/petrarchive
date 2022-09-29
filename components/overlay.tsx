@@ -1,4 +1,4 @@
-import { Box, HStack, Text, Badge, Spacer } from "@chakra-ui/react";
+import { Box, Text, Badge } from "@chakra-ui/react";
 
 export default function Overlay(props) {
   return (
