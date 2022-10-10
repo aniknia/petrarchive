@@ -1,6 +1,8 @@
 import { HStack } from "@chakra-ui/react";
 import Image from "../node_modules/next/image";
-import petr_head from "../public/images/petr_head.png";
+import petr from "../public/images/petr_head.png";
+import merry_petr from "../public/images/seasonal/merry_petr.png";
+import spooky_petr from "../public/images/seasonal/spooky_petr.png";
 import { createContext, useEffect, useState } from "react";
 
 class LogoObj {
@@ -11,10 +13,20 @@ class LogoObj {
 
 export default function Logo() {
   const [logo, setLogo] = useState(new Array<LogoObj>());
-  const [source, setSource] = useState(petr_head.src);
+  const [source, setSource] = useState(spooky_petr);
   let date = new Date();
   let month = date.getMonth() + 1;
+
   useEffect(() => {
+    if (month == 10) {
+      setSource(spooky_petr);
+    }
+    if (month == 12) {
+      setSource(merry_petr);
+    }
+  });
+
+  /*useEffect(() => {
     fetch(process.env.API_HOST + "/api/logos?populate=*")
       .then((response) => response.json())
       .then((data) => {
@@ -22,7 +34,7 @@ export default function Logo() {
           data.data.map((item) => {
             return {
               name: item.name,
-              image: item.attributes.image.data.attributes.formats.small.url,
+              image: item.attributes.image.data.attributes.url,
               month: item.attributes.month,
             };
           })
@@ -32,11 +44,11 @@ export default function Logo() {
     if (logo.find((item) => item.month == month)) {
       setSource(logo.find((item) => item.month == month).image);
     }
-  });
+  });*/
 
   return (
     <HStack>
-      <Image src={source} alt="Petr" width={45} height={40} />
+      <Image src={source} alt="Petr" width={63} height={40} />
     </HStack>
   );
 }
