@@ -63,7 +63,7 @@ export default function Roadmap() {
             Likes
           </Box>
           <Box mb="2" display="flex" alignItems="baseline">
-            <Badge borderRadius="full" px="2" colorScheme="teal">
+            <Badge borderRadius="full" px="2" colorScheme="green">
               Finished
             </Badge>
           </Box>
@@ -79,7 +79,7 @@ export default function Roadmap() {
             Holiday Icons
           </Box>
           <Box mb="2" display="flex" alignItems="baseline">
-            <Badge borderRadius="full" px="2" colorScheme="teal">
+            <Badge borderRadius="full" px="2" colorScheme="green">
               Finished
             </Badge>
           </Box>
@@ -94,7 +94,7 @@ export default function Roadmap() {
             Sorting
           </Box>
           <Box mb="2" display="flex" alignItems="baseline">
-            <Badge borderRadius="full" px="2" colorScheme="teal">
+            <Badge borderRadius="full" px="2" colorScheme="yellow">
               In Progess
             </Badge>
           </Box>
@@ -109,7 +109,7 @@ export default function Roadmap() {
             Searching
           </Box>
           <Box mb="2" display="flex" alignItems="baseline">
-            <Badge borderRadius="full" px="2" colorScheme="teal">
+            <Badge borderRadius="full" px="2" colorScheme="yellow">
               Planned
             </Badge>
           </Box>
@@ -124,7 +124,7 @@ export default function Roadmap() {
             Submitions
           </Box>
           <Box mb="2" display="flex" alignItems="baseline">
-            <Badge borderRadius="full" px="2" colorScheme="teal">
+            <Badge borderRadius="full" px="2" colorScheme="yellow">
               Planned
             </Badge>
           </Box>
