@@ -63,7 +63,7 @@ export default function Roadmap() {
             Likes
           </Box>
           <Box mb="2" display="flex" alignItems="baseline">
-            <Badge borderRadius="full" px="2" colorScheme="teal">
+            <Badge borderRadius="full" px="2" colorScheme="green">
               Finished
             </Badge>
           </Box>
@@ -76,10 +76,25 @@ export default function Roadmap() {
 
         <Box p="2">
           <Box mb="2" fontWeight="semibold" as="h4" noOfLines={1}>
+            Holiday Icons
+          </Box>
+          <Box mb="2" display="flex" alignItems="baseline">
+            <Badge borderRadius="full" px="2" colorScheme="green">
+              Finished
+            </Badge>
+          </Box>
+          <Box>
+            Custom Icons for holiday cheer. December and October are finished
+            but others are soon to come!
+          </Box>
+        </Box>
+
+        <Box p="2">
+          <Box mb="2" fontWeight="semibold" as="h4" noOfLines={1}>
             Sorting
           </Box>
           <Box mb="2" display="flex" alignItems="baseline">
-            <Badge borderRadius="full" px="2" colorScheme="teal">
+            <Badge borderRadius="full" px="2" colorScheme="yellow">
               In Progess
             </Badge>
           </Box>
@@ -94,7 +109,7 @@ export default function Roadmap() {
             Searching
           </Box>
           <Box mb="2" display="flex" alignItems="baseline">
-            <Badge borderRadius="full" px="2" colorScheme="teal">
+            <Badge borderRadius="full" px="2" colorScheme="yellow">
               Planned
             </Badge>
           </Box>
@@ -109,7 +124,7 @@ export default function Roadmap() {
             Submitions
           </Box>
           <Box mb="2" display="flex" alignItems="baseline">
-            <Badge borderRadius="full" px="2" colorScheme="teal">
+            <Badge borderRadius="full" px="2" colorScheme="yellow">
               Planned
             </Badge>
           </Box>

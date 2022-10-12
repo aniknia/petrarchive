@@ -1,11 +1,34 @@
 import { HStack } from "@chakra-ui/react";
 import Image from "../node_modules/next/image";
-import petr_head from "../public/images/petr_head.png";
+import petr from "../public/images/petr_head.png";
+import merry_petr from "../public/images/seasonal/Merry_Petr.png";
+import spooky_petr from "../public/images/seasonal/Spooky_Petr.png";
+import { useEffect, useState } from "react";
+
+class LogoObj {
+  name: string;
+  image: string;
+  month: number;
+}
 
 export default function Logo() {
+  const [logo, setLogo] = useState(new Array<LogoObj>());
+  const [source, setSource] = useState(petr);
+  let date = new Date();
+  let month = date.getMonth() + 1;
+
+  useEffect(() => {
+    if (month == 10) {
+      setSource(spooky_petr);
+    }
+    if (month == 12) {
+      setSource(merry_petr);
+    }
+  }, [month]);
+
   return (
     <HStack>
-      <Image src={petr_head} alt="Petr" width={45} height={40} />
+      <Image src={source} alt="Petr" width={63} height={40} />
     </HStack>
   );
 }
