@@ -1,8 +1,8 @@
 import { HStack } from "@chakra-ui/react";
 import Image from "../node_modules/next/image";
 import petr from "../public/images/petr_head.png";
-import merry_petr from "../public/images/seasonal/merry_petr.png";
-import spooky_petr from "../public/images/seasonal/spooky_petr.png";
+import merry_petr from "../public/images/seasonal/Merry_Petr.png";
+import spooky_petr from "../public/images/seasonal/Spooky_Petr.png";
 import { useEffect, useState } from "react";
 
 class LogoObj {
