@@ -3,7 +3,7 @@ import Image from "../node_modules/next/image";
 import petr from "../public/images/petr_head.png";
 import merry_petr from "../public/images/seasonal/merry_petr.png";
 import spooky_petr from "../public/images/seasonal/spooky_petr.png";
-import { createContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 class LogoObj {
   name: string;
@@ -13,7 +13,7 @@ class LogoObj {
 
 export default function Logo() {
   const [logo, setLogo] = useState(new Array<LogoObj>());
-  const [source, setSource] = useState(spooky_petr);
+  const [source, setSource] = useState(petr);
   let date = new Date();
   let month = date.getMonth() + 1;
 
@@ -24,27 +24,7 @@ export default function Logo() {
     if (month == 12) {
       setSource(merry_petr);
     }
-  });
-
-  /*useEffect(() => {
-    fetch(process.env.API_HOST + "/api/logos?populate=*")
-      .then((response) => response.json())
-      .then((data) => {
-        setLogo(
-          data.data.map((item) => {
-            return {
-              name: item.name,
-              image: item.attributes.image.data.attributes.url,
-              month: item.attributes.month,
-            };
-          })
-        );
-      });
-
-    if (logo.find((item) => item.month == month)) {
-      setSource(logo.find((item) => item.month == month).image);
-    }
-  });*/
+  }, [month]);
 
   return (
     <HStack>
