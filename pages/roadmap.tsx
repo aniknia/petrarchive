@@ -94,7 +94,7 @@ export default function Roadmap() {
             Sorting
           </Box>
           <Box mb="2" display="flex" alignItems="baseline">
-            <Badge borderRadius="full" px="2" colorScheme="yellow">
+            <Badge borderRadius="full" px="2" colorScheme="teal">
               In Progess
             </Badge>
           </Box>
