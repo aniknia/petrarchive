@@ -23,7 +23,7 @@ export default function Searchbar() {
           <InputGroup size="lg" minW="320">
             <InputLeftElement
               pointerEvents="none"
-              children={[<SearchIcon size={24} />]}
+              children={[<SearchIcon key={1} size={24} />]}
             />
 
             <Input
