@@ -21,10 +21,9 @@ export default function Searchbar() {
       <Stack>
         <VStack gap="2" pt="2" pl="7" pr="7">
           <InputGroup size="lg" minW="320">
-            <InputLeftElement
-              pointerEvents="none"
-              children={[<SearchIcon key={1} size={24} />]}
-            />
+            <InputLeftElement pointerEvents="none">
+              <SearchIcon key="1" size={24} />
+            </InputLeftElement>
 
             <Input
               variant="filled"
