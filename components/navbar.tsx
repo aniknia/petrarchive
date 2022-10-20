@@ -15,6 +15,7 @@ export default function NavBar() {
           pt="2"
           pl="2"
           pr="2"
+          height="48px"
         >
           <Box p="1">
             <Link href="/roadmap">
