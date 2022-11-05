@@ -1,20 +1,27 @@
 import { Flex } from "@chakra-ui/react";
+import Searchbar from "./searchbar";
+
 import Item from "./item";
-import { useState, useEffect } from "react";
+import { useContext } from "react";
+import { PetrContext } from "./petrprovider";
 
 export default function Main() {
-  const [petrs, setPetrs] = useState([]);
-  useEffect(() => {
-    fetch("https://api.petrarchive.io/api/petrs?populate=*")
-      .then((response) => response.json())
-      .then((data) => {
-        setPetrs(data.data.map((petr) => <Item key={petr.id} petr={petr} />));
-      });
-  }, []);
+  const value = useContext(PetrContext);
 
   return (
-    <Flex justify="space-around" wrap="wrap">
-      {petrs}
-    </Flex>
+    <>
+      {" "}
+      <Searchbar />
+      <Flex justify="space-around" wrap="wrap">
+        {value.petrs &&
+          value.petrs
+            .sort((a, b) => b.created.getTime() - a.created.getTime())
+            .map((item) => {
+              if (item.dropped) {
+                return <Item key={item.id} petr={item} />;
+              }
+            })}
+      </Flex>
+    </>
   );
 }
