@@ -12,8 +12,8 @@ export default function Meta() {
       <Script
         async
         defer
-        data-website-id="a6b6959f-c861-405e-b3af-2114df1e0e7f"
-        src="https://analytics.petrarchive.io/umami.js"
+        data-website-id="3cd18249-8e44-48b9-a9b6-74c380dba0ac"
+        src="https://umami.niknia.dev/umami.js"
       ></Script>
     </>
   );
