@@ -15,7 +15,7 @@ export default function Item(props) {
     <>
       <Box
         width={320}
-        height={370}
+        height={364}
         m="15"
         borderWidth="1px"
         borderRadius="lg"

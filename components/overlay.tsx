@@ -8,7 +8,7 @@ export default function Overlay(props) {
     <>
       <Box
         display="inline-block"
-        height={326}
+        height={320}
         opacity={0.9}
         pt="1"
         pb="0"
