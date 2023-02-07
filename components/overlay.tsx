@@ -22,7 +22,16 @@ export default function Overlay(props) {
             Official
           </Badge>
         ) : (
-          <></>
+          <Badge
+            colorScheme="yellow"
+            display="inline-block"
+            position="absolute"
+            top="0"
+            left="0"
+            zIndex="10"
+          >
+            Community
+          </Badge>
         )}
         {dropped ? (
           <Badge colorScheme="purple" mr="2">
