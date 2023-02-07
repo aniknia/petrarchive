@@ -1,6 +1,9 @@
 import { Box, Text, Badge } from "@chakra-ui/react";
+import { useState } from "react";
 
 export default function Overlay(props) {
+  const [official, setOfficial] = useState(props.petr.official);
+  const [dropped, setDropped] = useState(props.petr.dropped);
   return (
     <>
       <Box
@@ -14,6 +17,20 @@ export default function Overlay(props) {
         m="0"
       >
         <Text fontWeight="semibold">By: {props.petr.author}</Text>
+        {official ? (
+          <Badge colorScheme="green" mr="2">
+            Official
+          </Badge>
+        ) : (
+          <></>
+        )}
+        {dropped ? (
+          <Badge colorScheme="purple" mr="2">
+            Dropped
+          </Badge>
+        ) : (
+          <></>
+        )}
         {props.petr.tags.map((tag, index) => (
           <Badge key={index} colorScheme="linkedin" mr="2">
             {tag}
