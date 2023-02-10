@@ -1,7 +1,7 @@
-import Image from "../node_modules/next/image";
-import petr from "../public/images/petr_head.png";
-import merry_petr from "../public/images/seasonal/Merry_Petr.png";
-import spooky_petr from "../public/images/seasonal/Spooky_Petr.png";
+import Image from "../../node_modules/next/image";
+import petr from "../../public/images/petr_head.png";
+import merry_petr from "../../public/images/seasonal/Merry_Petr.png";
+import spooky_petr from "../../public/images/seasonal/Spooky_Petr.png";
 import { useEffect, useState } from "react";
 
 export default function Logo() {

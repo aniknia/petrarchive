@@ -1,9 +1,9 @@
 import { Flex } from "@chakra-ui/react";
-import Searchbar from "./searchbar";
+import Searchbar from "./searchbar/searchbar";
 
-import Item from "./item";
+import Item from "./petrdisplay/item";
 import { useContext } from "react";
-import { PetrContext } from "./petrprovider";
+import { PetrContext } from "./provider/petrprovider";
 
 export default function Main() {
   const value = useContext(PetrContext);

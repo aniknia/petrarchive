@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Stack,
   VStack,
@@ -13,10 +13,17 @@ import {
 import { SearchIcon, XIcon } from "@primer/octicons-react";
 
 // TODO: Reimplement the searchbar
+// TODO: Implement search by attribute (e.g. dropped, community, etc)
+// TODO: Implement a trending option
 
 export default function Searchbar() {
   const [show, setShow] = useState(false);
+  const [selectValue, setSelectValue] = useState("Newest");
   const handleClick = () => setShow(!show);
+
+  useEffect(() => {
+    console.log(selectValue);
+  }, [selectValue]);
 
   return (
     <>
@@ -45,7 +52,13 @@ export default function Searchbar() {
           )}
 
           <Box p="1" minW="130">
-            <Select variant="filled" placeholder="Newest">
+            <Select
+              variant="filled"
+              onChange={(value) => {
+                setSelectValue(value.target.value);
+              }}
+            >
+              <option value="Newest">Newest</option>
               <option value="Oldest">Oldest</option>
               <option value="Most Liked">Most Liked</option>
             </Select>

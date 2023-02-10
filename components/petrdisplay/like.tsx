@@ -3,7 +3,7 @@ import { HeartFillIcon } from "@primer/octicons-react";
 import { useEffect, useState } from "react";
 import CountUp from "react-countup";
 import { getCookies, setCookies, hasCookie, removeCookies } from "cookies-next";
-import PetrProvider from "./petrprovider";
+import PetrProvider from "../provider/petrprovider";
 
 // TODO: likes counter starts at a dcrement of one, fix this
 // TODO: implement a cleaner cookies system

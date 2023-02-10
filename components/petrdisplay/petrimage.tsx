@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Image from "../node_modules/next/image";
+import Image from "../../node_modules/next/image";
 import { Box, Badge } from "@chakra-ui/react";
 
 export default function PetrImage(props) {

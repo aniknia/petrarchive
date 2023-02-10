@@ -1,6 +1,6 @@
 import { Stack, Flex, Box, Divider } from "@chakra-ui/react";
 import { QuestionIcon, WorkflowIcon } from "@primer/octicons-react";
-import Link from "../node_modules/next/link";
+import Link from "../../node_modules/next/link";
 import { ColorModeSwitcher } from "./colormodeswitcher";
 import Logo from "./logo";
 
