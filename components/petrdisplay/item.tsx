@@ -4,6 +4,8 @@ import Overlay from "./overlay";
 import Underlay from "./underlay";
 import Like from "./like";
 
+// TODO: Change to time to start and end coordinates to more accuratly determine a tap vs drag
+
 export default function Item(props) {
   const backgroundColor = useColorModeValue(
     "#EDF2F7",
