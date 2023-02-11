@@ -10,6 +10,19 @@ export default function Item(props) {
     "rgba(255, 255, 255, 0.08)"
   );
   const [hover, setHover] = useState(false);
+  const [time, setTime] = useState(0);
+
+  function startTimer() {
+    let t = new Date();
+    setTime(t.getTime());
+  }
+
+  function endTimer() {
+    let t = new Date();
+    if (t.getTime() - time < 500) {
+      setHover(!hover);
+    }
+  }
 
   return (
     <>
@@ -25,7 +38,8 @@ export default function Item(props) {
       >
         <Box
           cursor="pointer"
-          onTouchEnd={() => setHover(!hover)}
+          onTouchStart={() => startTimer()}
+          onTouchEnd={() => endTimer()}
           onMouseOver={() => setHover(true)}
           onMouseOut={() => setHover(false)}
         >
