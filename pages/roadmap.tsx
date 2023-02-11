@@ -95,7 +95,7 @@ export default function Roadmap() {
           </Box>
           <Box mb="2" display="flex" alignItems="baseline">
             <Badge borderRadius="full" px="2" colorScheme="teal">
-              In Progess
+              Finished
             </Badge>
           </Box>
           <Box>
