@@ -134,6 +134,21 @@ export default function Roadmap() {
             sinking money into their designs.
           </Box>
         </Box>
+
+        <Box p="2">
+          <Box mb="2" fontWeight="semibold" as="h4" noOfLines={1}>
+            Refactor
+          </Box>
+          <Box mb="2" display="flex" alignItems="baseline">
+            <Badge borderRadius="full" px="2" colorScheme="yellow">
+              Planned
+            </Badge>
+          </Box>
+          <Box>
+            Incresased responsivness, quicker loads, cleaner ui, more fun to
+            come...
+          </Box>
+        </Box>
       </Chrono>
     </>
   );
