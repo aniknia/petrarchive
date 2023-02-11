@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import {
   Stack,
   VStack,
@@ -12,18 +12,16 @@ import {
 } from "@chakra-ui/react";
 import { SearchIcon, XIcon } from "@primer/octicons-react";
 
+import { SearchContext } from "../provider/searchprovider";
+
 // TODO: Reimplement the searchbar
 // TODO: Implement search by attribute (e.g. dropped, community, etc)
 // TODO: Implement a trending option
 
 export default function Searchbar() {
   const [show, setShow] = useState(false);
-  const [selectValue, setSelectValue] = useState("Newest");
+  const value = useContext(SearchContext);
   const handleClick = () => setShow(!show);
-
-  useEffect(() => {
-    console.log(selectValue);
-  }, [selectValue]);
 
   return (
     <>
@@ -54,8 +52,8 @@ export default function Searchbar() {
           <Box p="1" minW="130">
             <Select
               variant="filled"
-              onChange={(value) => {
-                setSelectValue(value.target.value);
+              onChange={(sort) => {
+                value.changeSortType(sort.target.value);
               }}
             >
               <option value="Newest">Newest</option>
