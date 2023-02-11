@@ -24,7 +24,6 @@ export default function Item(props) {
         overflow="hidden"
       >
         <Box
-          onTouchStart={() => setHover(!hover)}
           onTouchEnd={() => setHover(!hover)}
           onMouseOver={() => setHover(true)}
           onMouseOut={() => setHover(false)}
