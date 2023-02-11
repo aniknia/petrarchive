@@ -19,7 +19,7 @@ export default function Item(props) {
 
   function endTimer() {
     let t = new Date();
-    if (t.getTime() - time < 200) {
+    if (t.getTime() - time < 150) {
       setHover(!hover);
     }
   }
