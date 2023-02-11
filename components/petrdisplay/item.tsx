@@ -29,10 +29,7 @@ export default function Item(props) {
           onMouseOut={() => setHover(false)}
         >
           {hover ? (
-            <Overlay
-              petr={props.petr}
-              visibility={hover ? "vilible" : "hidden"}
-            />
+            <Overlay petr={props.petr} hover={hover} />
           ) : (
             <Underlay petr={props.petr} />
           )}

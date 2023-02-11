@@ -8,7 +8,7 @@ export default function Overlay(props) {
     <>
       <Box
         display="inline-block"
-        height={320}
+        height={props.hover ? 320 : 0}
         opacity={0.9}
         pt="1"
         pb="0"
