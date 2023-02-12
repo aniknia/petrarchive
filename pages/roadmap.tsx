@@ -114,8 +114,8 @@ export default function Roadmap() {
             </Badge>
           </Box>
           <Box>
-            Search functionality will allow users to find their personal
-            favourite petrs or find what petrs are missing.
+            Search functionality will allow users to find their favourite petrs
+            or find what petrs are missing. Search by tag, petr name, or author.
           </Box>
         </Box>
 
@@ -130,7 +130,7 @@ export default function Roadmap() {
           </Box>
           <Box>
             Submitions will allow people to submit their own petrs, this can
-            help whose who drops stickers to gauge their popularity before
+            help those who drops stickers to gauge their popularity before
             sinking money into their designs.
           </Box>
         </Box>
