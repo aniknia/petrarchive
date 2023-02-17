@@ -44,10 +44,10 @@ export default function Item(props) {
         <Box
           cursor="pointer"
           onTouchStart={(event) =>
-            startTouch(event.Touch.clientX, event.Touch.clientY)
+            startTouch(event.touches[0].clientX, event.touches[0].clientY)
           }
           onTouchEnd={(event) =>
-            endTouch(event.Touch.clientX, event.Touch.clientY)
+            endTouch(event.touches[0].clientX, event.touches[0].clientY)
           }
           onMouseOver={() => setHover(true)}
           onMouseOut={() => setHover(false)}
