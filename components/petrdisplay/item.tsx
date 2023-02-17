@@ -47,10 +47,10 @@ export default function Item(props) {
         <Box
           cursor="pointer"
           onTouchStart={(event) =>
-            startTouch(event.touches[0].ScreenX, event.touches[0].ScreenY)
+            startTouch(event.touches[0].screenX, event.touches[0].screenY)
           }
           onTouchEnd={(event) =>
-            endTouch(event.touches[0].ScreenX, event.touches[0].ScreenY)
+            endTouch(event.touches[0].screenX, event.touches[0].screenY)
           }
           onTouchCancel={() => setHover(false)}
           onMouseOver={() => setHover(true)}
@@ -61,6 +61,7 @@ export default function Item(props) {
           ) : (
             <Underlay petr={props.petr} />
           )}
+          s
         </Box>
 
         <HStack
