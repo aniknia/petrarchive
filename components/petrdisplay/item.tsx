@@ -24,7 +24,7 @@ export default function Item(props) {
       Math.pow(x - touchLocation[0], 2) + Math.pow(y - touchLocation[1], 2)
     );
 
-    if (d > 0) {
+    if (d < 1) {
       setHover(!hover);
     }
   }
@@ -53,16 +53,7 @@ export default function Item(props) {
           onMouseOut={() => setHover(false)}
         >
           {hover ? (
-            <Overlay
-              onTouchStart={(event) =>
-                startTouch(event.touches[0].clientX, event.touches[0].clientY)
-              }
-              onTouchEnd={(event) =>
-                endTouch(event.touches[0].clientX, event.touches[0].clientY)
-              }
-              petr={props.petr}
-              hover={hover}
-            />
+            <Overlay petr={props.petr} hover={hover} />
           ) : (
             <Underlay petr={props.petr} />
           )}
