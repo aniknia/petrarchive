@@ -53,22 +53,9 @@ export default function Item(props) {
             endTouch(event.touches[0].clientX, event.touches[0].clientY)
           }
           onTouchCancel={() => setHover(false)}
-          onMouseOver={() => setHover(false)}
-          onMouseOut={() => setHover(false)}
         >
           {hover ? (
-            <Overlay
-              cursor="pointer"
-              onTouchStart={(event) =>
-                startTouch(event.touches[0].clientX, event.touches[0].clientY)
-              }
-              onTouchEnd={(event) =>
-                endTouch(event.touches[0].clientX, event.touches[0].clientY)
-              }
-              onTouchCancel={() => setHover(false)}
-              petr={props.petr}
-              hover={hover}
-            />
+            <Overlay petr={props.petr} hover={hover} />
           ) : (
             <Underlay petr={props.petr} />
           )}
