@@ -24,7 +24,7 @@ export default function Item(props) {
       Math.pow(x - touchLocation[0], 2) + Math.pow(y - touchLocation[1], 2)
     );
 
-    if (d < 1) {
+    if (d < 6) {
       setHover(!hover);
     }
   }
