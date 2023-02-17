@@ -20,7 +20,7 @@ export default function Item(props) {
   }
 
   function endTouch(x, y) {
-    const delta = 6;
+    const delta = 40000;
     let xdiff = Math.abs(x - touchLocation[0]);
     let ydiff = Math.abs(y - touchLocation[1]);
     let d = Math.sqrt(
