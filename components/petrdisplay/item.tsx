@@ -20,11 +20,14 @@ export default function Item(props) {
   }
 
   function endTouch(x, y) {
+    const delta = 6;
+    let xdiff = Math.abs(x - touchLocation[0]);
+    let ydiff = Math.abs(y - touchLocation[1]);
     let d = Math.sqrt(
       Math.pow(x - touchLocation[0], 2) + Math.pow(y - touchLocation[1], 2)
     );
 
-    if (d < 6) {
+    if (xdiff < delta && ydiff < delta) {
       setHover(!hover);
     }
   }
