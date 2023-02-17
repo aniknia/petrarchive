@@ -58,6 +58,7 @@ export default function Item(props) {
         >
           {hover ? (
             <Overlay
+              cursor="pointer"
               onTouchStart={(event) =>
                 startTouch(event.touches[0].screenX, event.touches[0].screenY)
               }
