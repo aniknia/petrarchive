@@ -13,15 +13,18 @@ export default function Item(props) {
   );
   const [hover, setHover] = useState(false);
   const [time, setTime] = useState(0);
+  const [touchLocation, setTouchLocation] = useState([null, null]);
 
-  function startTimer() {
-    let t = new Date();
-    setTime(t.getTime());
+  function startTouch(x0, y0) {
+    setTouchLocation([x0, y0]);
   }
 
-  function endTimer() {
-    let t = new Date();
-    if (t.getTime() - time < 125) {
+  function endTouch(x, y) {
+    let d = Math.sqrt(
+      Math.pow(x - touchLocation[0], 2) + Math.pow(y - touchLocation[1], 2)
+    );
+
+    if (d > 0) {
       setHover(!hover);
     }
   }
@@ -40,8 +43,12 @@ export default function Item(props) {
       >
         <Box
           cursor="pointer"
-          onTouchStart={() => startTimer()}
-          onTouchEnd={() => endTimer()}
+          onTouchStart={(event) =>
+            startTouch(event.Touch.clientX, event.Touch.clientY)
+          }
+          onTouchEnd={(event) =>
+            endTouch(event.Touch.clientX, event.Touch.clientY)
+          }
           onMouseOver={() => setHover(true)}
           onMouseOut={() => setHover(false)}
         >
