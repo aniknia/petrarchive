@@ -52,6 +52,7 @@ export default function Item(props) {
           onTouchEnd={(event) =>
             endTouch(event.touches[0].clientX, event.touches[0].clientY)
           }
+          onTouchCancel={() => setHover(false)}
           onMouseOver={() => setHover(true)}
           onMouseOut={() => setHover(false)}
         >
