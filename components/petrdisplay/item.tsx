@@ -17,17 +17,20 @@ export default function Item(props) {
   const [touchLocation, setTouchLocation] = useState([null, null]);
 
   function startTouch(event) {
+    let t = new Date();
     event.preventDefault();
     setTouchLocation([event.touches[0].clientX, event.touches[0].clientY]);
+    setTime(t.getTime());
   }
 
   function endTouch(event) {
+    let t = new Date();
     event.preventDefault();
     const delta = 6;
     let xdiff = Math.abs(event.changedTouches[0].clientX - touchLocation[0]);
     let ydiff = Math.abs(event.changedTouches[0].clientY - touchLocation[1]);
 
-    if (xdiff < delta && ydiff < delta) {
+    if (t.getTime() - time < 125 && xdiff < delta && ydiff < delta) {
       setHover(!hover);
     }
   }
