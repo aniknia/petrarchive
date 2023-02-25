@@ -16,17 +16,16 @@ export default function Item(props) {
   const [time, setTime] = useState(0);
   const [touchLocation, setTouchLocation] = useState([null, null]);
 
-  function startTouch(x0, y0) {
-    setTouchLocation([x0, y0]);
+  function startTouch(event) {
+    event.preventDefault();
+    setTouchLocation([event.touches[0].clientX, event.touches[0].clientY]);
   }
 
-  function endTouch(x, y) {
-    const delta = 40000;
-    let xdiff = Math.abs(x - touchLocation[0]);
-    let ydiff = Math.abs(y - touchLocation[1]);
-    let d = Math.sqrt(
-      Math.pow(x - touchLocation[0], 2) + Math.pow(y - touchLocation[1], 2)
-    );
+  function endTouch(event) {
+    event.preventDefault();
+    const delta = 6;
+    let xdiff = Math.abs(event.changedTouches[0].clientX - touchLocation[0]);
+    let ydiff = Math.abs(event.changedTouches[0].clientY - touchLocation[1]);
 
     if (xdiff < delta && ydiff < delta) {
       setHover(!hover);
@@ -48,13 +47,12 @@ export default function Item(props) {
       >
         {isMobile ? (
           <Box
-            onTouchStart={(event) =>
-              startTouch(event.touches[0].clientX, event.touches[0].clientY)
-            }
-            onTouchEnd={(event) =>
-              endTouch(event.touches[0].clientX, event.touches[0].clientY)
-            }
-            onTouchCancel={() => setHover(false)}
+            onTouchStart={(event) => {
+              startTouch(event);
+            }}
+            onTouchEnd={(event) => {
+              endTouch(event);
+            }}
           >
             {hover ? (
               <Overlay petr={props.petr} hover={hover} />
