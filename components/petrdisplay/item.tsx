@@ -3,6 +3,7 @@ import { useColorModeValue, Spacer, HStack, Box, Text } from "@chakra-ui/react";
 import Overlay from "./overlay";
 import Underlay from "./underlay";
 import Like from "./like";
+import { isMobile } from "react-device-detect";
 
 // TODO: Change to time to start and end coordinates to more accuratly determine a tap vs drag
 
@@ -31,7 +32,8 @@ export default function Item(props) {
       setHover(!hover);
     }
   }
-
+  // onMouseOver={() => setHover(true)}
+  // onMouseOut={() => setHover(false)}
   return (
     <>
       <Box
@@ -44,23 +46,34 @@ export default function Item(props) {
         backgroundColor={backgroundColor}
         overflow="hidden"
       >
-        <Box
-          onTouchStart={(event) =>
-            startTouch(event.touches[0].clientX, event.touches[0].clientY)
-          }
-          onTouchEnd={(event) =>
-            endTouch(event.touches[0].clientX, event.touches[0].clientY)
-          }
-          onTouchCancel={() => setHover(false)}
-          onMouseOver={() => setHover(true)}
-          onMouseOut={() => setHover(false)}
-        >
-          {hover ? (
-            <Overlay petr={props.petr} hover={hover} />
-          ) : (
-            <Underlay petr={props.petr} />
-          )}
-        </Box>
+        {isMobile ? (
+          <Box
+            onTouchStart={(event) =>
+              startTouch(event.touches[0].clientX, event.touches[0].clientY)
+            }
+            onTouchEnd={(event) =>
+              endTouch(event.touches[0].clientX, event.touches[0].clientY)
+            }
+            onTouchCancel={() => setHover(false)}
+          >
+            {hover ? (
+              <Overlay petr={props.petr} hover={hover} />
+            ) : (
+              <Underlay petr={props.petr} />
+            )}
+          </Box>
+        ) : (
+          <Box
+            onMouseOver={() => setHover(true)}
+            onMouseOut={() => setHover(false)}
+          >
+            {hover ? (
+              <Overlay petr={props.petr} hover={hover} />
+            ) : (
+              <Underlay petr={props.petr} />
+            )}
+          </Box>
+        )}
 
         <HStack
           justify="space-between"
