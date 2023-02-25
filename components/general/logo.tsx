@@ -1,8 +1,7 @@
-import { HStack } from "@chakra-ui/react";
-import Image from "../node_modules/next/image";
-import petr from "../public/images/petr_head.png";
-import merry_petr from "../public/images/seasonal/Merry_Petr.png";
-import spooky_petr from "../public/images/seasonal/Spooky_Petr.png";
+import Image from "../../node_modules/next/image";
+import petr from "../../public/images/petr_head.png";
+import merry_petr from "../../public/images/seasonal/Merry_Petr.png";
+import spooky_petr from "../../public/images/seasonal/Spooky_Petr.png";
 import { useEffect, useState } from "react";
 
 export default function Logo() {
@@ -51,9 +50,5 @@ export default function Logo() {
     }
   }, [month]);
 
-  return (
-    <HStack>
-      <Image src={source} alt="Petr" width={63} height={40} />
-    </HStack>
-  );
+  return <Image src={source} alt="Petr" height="40px" width="60px" />;
 }

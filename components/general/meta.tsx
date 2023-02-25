@@ -1,5 +1,5 @@
-import Head from "../node_modules/next/head";
-import Script from "../node_modules/next/script";
+import Head from "../../node_modules/next/head";
+import Script from "../../node_modules/next/script";
 
 export default function Meta() {
   return (

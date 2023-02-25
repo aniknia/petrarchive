@@ -40,6 +40,7 @@ export default function PetrProvider(props) {
                 ? item.attributes.tags.match(regex)
                 : [],
               dropped: item.attributes.dropped,
+              official: item.attributes.official,
               created: new Date(item.attributes.created),
             };
           })

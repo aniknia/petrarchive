@@ -94,8 +94,8 @@ export default function Roadmap() {
             Sorting
           </Box>
           <Box mb="2" display="flex" alignItems="baseline">
-            <Badge borderRadius="full" px="2" colorScheme="teal">
-              In Progess
+            <Badge borderRadius="full" px="2" colorScheme="green">
+              Finished
             </Badge>
           </Box>
           <Box>
@@ -109,13 +109,13 @@ export default function Roadmap() {
             Searching
           </Box>
           <Box mb="2" display="flex" alignItems="baseline">
-            <Badge borderRadius="full" px="2" colorScheme="yellow">
-              Planned
+            <Badge borderRadius="full" px="2" colorScheme="teal">
+              In Progress
             </Badge>
           </Box>
           <Box>
-            Search functionality will allow users to find their personal
-            favourite petrs or find what petrs are missing.
+            Search functionality will allow users to find their favourite petrs
+            or find what petrs are missing. Search by tag, petr name, or author.
           </Box>
         </Box>
 
@@ -130,8 +130,23 @@ export default function Roadmap() {
           </Box>
           <Box>
             Submitions will allow people to submit their own petrs, this can
-            help whose who drops stickers to gauge their popularity before
+            help those who drops stickers to gauge their popularity before
             sinking money into their designs.
+          </Box>
+        </Box>
+
+        <Box p="2">
+          <Box mb="2" fontWeight="semibold" as="h4" noOfLines={1}>
+            Refactor
+          </Box>
+          <Box mb="2" display="flex" alignItems="baseline">
+            <Badge borderRadius="full" px="2" colorScheme="yellow">
+              Planned
+            </Badge>
+          </Box>
+          <Box>
+            Incresased responsivness, quicker loads, cleaner ui, more fun to
+            come...
           </Box>
         </Box>
       </Chrono>
