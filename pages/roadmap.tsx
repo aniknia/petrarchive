@@ -49,7 +49,7 @@ export default function Roadmap() {
         <Box>
           <Text fontSize="lg">
             This is a general roadmap for this site. Feel free to email
-            suggestions or new petrs to hellp@petrarchive.io
+            suggestions or new petrs to hellp@petrarchive.com
           </Text>
         </Box>
       </Flex>
@@ -116,6 +116,21 @@ export default function Roadmap() {
           <Box>
             Search functionality will allow users to find their favourite petrs
             or find what petrs are missing. Search by tag, petr name, or author.
+          </Box>
+        </Box>
+
+        <Box p="2">
+          <Box mb="2" fontWeight="semibold" as="h4" noOfLines={1}>
+            Accounts
+          </Box>
+          <Box mb="2" display="flex" alignItems="baseline">
+            <Badge borderRadius="full" px="2" colorScheme="yellow">
+              Planned
+            </Badge>
+          </Box>
+          <Box>
+            Accounts will be the stepping stone for the submition system which
+            will come in the next update.
           </Box>
         </Box>
 
