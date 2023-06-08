@@ -1,5 +1,5 @@
 import { Flex } from "@chakra-ui/react";
-import Searchbar from "../searchbar/searchbar";
+import Filter from "../filter/filter";
 
 import Item from "../petrdisplay/item";
 import { useContext, useEffect } from "react";
@@ -15,7 +15,7 @@ export default function Main() {
   return (
     <>
       {" "}
-      <Searchbar />
+      <Filter />
       <Flex justify="space-around" wrap="wrap">
         {value.petrs &&
           value.petrs

@@ -3,20 +3,18 @@ import Layout from "../components/general/layout";
 import PetrProvider from "../components/provider/petrprovider";
 import SearchProvider from "../components/provider/searchprovider";
 
-function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }) {
   return (
     <>
       <ChakraProvider>
-        <SearchProvider>
-          <PetrProvider>
+        <PetrProvider>
+          <SearchProvider>
             <Layout>
               <Component {...pageProps} />
             </Layout>
-          </PetrProvider>
-        </SearchProvider>
+          </SearchProvider>
+        </PetrProvider>
       </ChakraProvider>
     </>
   );
 }
-
-export default MyApp;
