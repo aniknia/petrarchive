@@ -34,8 +34,7 @@ export default function Item(props) {
       setHover(!hover);
     }
   }
-  // onMouseOver={() => setHover(true)}
-  // onMouseOut={() => setHover(false)}
+
   return (
     <>
       <Box

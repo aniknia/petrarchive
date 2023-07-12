@@ -13,6 +13,7 @@ class Petr {
 
 export const PetrContext = createContext({
   petrs: new Array<Petr>(),
+  modifiedPetrs: new Array<Petr>(),
   constructor: () => {},
   getPetr: (id: number) => {},
   putPetr: (id: number) => {},
@@ -20,15 +21,21 @@ export const PetrContext = createContext({
   removeLikes: (id: number) => {},
 });
 
+export async function getStaticProps() {
+  let petrs = [];
+
+  return { props: petrs };
+}
+
 export default function PetrProvider(props) {
-  const [petrs, setPetrs] = useState();
+  const [petrs, SetPetrs] = useState();
   const regex = /[^\s]+/g;
 
   function constructor() {
     fetch(process.env.API_HOST + "/api/petrs?populate=*")
       .then((response) => response.json())
       .then((data) => {
-        setPetrs(
+        SetPetrs(
           data.data.map((item) => {
             return {
               id: item.id,
@@ -69,6 +76,7 @@ export default function PetrProvider(props) {
     <PetrContext.Provider
       value={{
         petrs: petrs,
+        modifiedPetrs: [],
         constructor: constructor,
         getPetr: getPetr,
         putPetr: putPetr,
