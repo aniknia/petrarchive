@@ -31,7 +31,7 @@ export default function SearchProvider(props) {
 
   const value = useContext(PetrContext);
   const fuse = new Fuse(value.petrs, options);
-  const [fuseResult, setFuseResult] = useState(fuse.search([" "]));
+  const [fuseResult, setFuseResult] = useState(fuse.search(" "));
 
   function changeSearchValue(search: string) {
     setSearchValue(search);
