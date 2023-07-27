@@ -38,9 +38,9 @@ export default function Roadmap() {
         "Search functionality will allow users to find their personal favourite petrs or find what petrs are missing.",
     },
     {
-      cardTitle: "Submitions",
+      cardTitle: "Submissions",
       cardDetailedText:
-        "Submitions will allow people to submit their own petrs, this can help whose who drops stickers to gauge their popularity before sinking money into their designs.",
+        "Submissions will allow people to submit their own petrs, this can help whose who drops stickers to gauge their popularity before sinking money into their designs.",
     }]}*/
 
   return (
