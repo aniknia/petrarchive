@@ -136,7 +136,7 @@ export default function Roadmap() {
 
         <Box p="2">
           <Box mb="2" fontWeight="semibold" as="h4" noOfLines={1}>
-            Submitions
+            Submissions
           </Box>
           <Box mb="2" display="flex" alignItems="baseline">
             <Badge borderRadius="full" px="2" colorScheme="yellow">
@@ -144,7 +144,7 @@ export default function Roadmap() {
             </Badge>
           </Box>
           <Box>
-            Submitions will allow people to submit their own petrs, this can
+            Submissions will allow people to submit their own petrs, this can
             help those who drops stickers to gauge their popularity before
             sinking money into their designs.
           </Box>
