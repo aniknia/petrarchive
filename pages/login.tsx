@@ -35,7 +35,7 @@ export default function Login() {
     setPassword(event.target.value);
   }
   function submit() {
-    let response = false;
+    let response;
     if (hasAccount) {
       response = loginContext.login(email, password);
     } else {

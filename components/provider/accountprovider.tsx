@@ -11,7 +11,7 @@ export const AccountContext = createContext({
   register: (username: string, email: string, password: string) => { },
   login: (identifier: string, password: string) => { },
   logout: () => { },
-  authorized: () => { return false },
+  authorized: {} as boolean,
 });
 
 export default function AccountProvider(props) {
@@ -89,10 +89,6 @@ export default function AccountProvider(props) {
     setCurrentUser(null);
   }
 
-  function isAuthorized(): boolean {
-    return authorized;
-  }
-
   return (
     <AccountContext.Provider
       value={{
@@ -100,7 +96,7 @@ export default function AccountProvider(props) {
         register: register,
         login: login,
         logout: logout,
-        authorized: isAuthorized,
+        authorized: authorized,
       }}
     >
       {props.children}
