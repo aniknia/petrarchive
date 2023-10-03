@@ -1,8 +1,9 @@
-import { Stack, Flex, Box, Divider } from "@chakra-ui/react";
+import { Stack, Flex, Box, HStack, Divider } from "@chakra-ui/react";
 import { QuestionIcon, WorkflowIcon } from "@primer/octicons-react";
 import Link from "../../node_modules/next/link";
 import { ColorModeSwitcher } from "./colormodeswitcher";
 import Logo from "./logo";
+import LoginNavButton from "./loginnavbutton";
 
 export default function NavBar() {
   return (
@@ -32,7 +33,10 @@ export default function NavBar() {
             </Link>
           </Box>
           <Box p="1">
-            <ColorModeSwitcher />
+            <HStack>
+              <LoginNavButton />
+              <ColorModeSwitcher />
+            </HStack>
           </Box>
         </Flex>
         <Divider p="0" />

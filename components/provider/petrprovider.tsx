@@ -1,6 +1,11 @@
 import { createContext, useEffect, useState } from "react";
 
-class Petr {
+type User = {
+  id: string;
+  username: string;
+}
+
+type Petr = {
   id: number;
   name: string;
   author: string;
@@ -9,16 +14,17 @@ class Petr {
   tags: Array<string>;
   dropped: boolean;
   created: Date;
+  user: User;
 }
 
 export const PetrContext = createContext({
   petrs: new Array<Petr>(),
   modifiedPetrs: new Array<Petr>(),
-  constructor: () => {},
-  getPetr: (id: number) => {},
-  putPetr: (id: number) => {},
-  addLikes: (id: number) => {},
-  removeLikes: (id: number) => {},
+  constructor: () => { },
+  getPetr: (id: number) => { },
+  putPetr: (id: number) => { },
+  addLikes: (id: number) => { },
+  removeLikes: (id: number) => { },
 });
 
 export async function getStaticProps() {
@@ -31,28 +37,30 @@ export default function PetrProvider(props) {
   const [petrs, SetPetrs] = useState();
   const regex = /[^\s]+/g;
 
-  function constructor() {
-    fetch(process.env.API_HOST + "/api/petrs?populate=*")
-      .then((response) => response.json())
-      .then((data) => {
-        SetPetrs(
-          data.data.map((item) => {
-            return {
-              id: item.id,
-              name: item.attributes.name,
-              author: item.attributes.author,
-              likes: item.attributes.likes,
-              image: item.attributes.image.data[0].attributes.url,
-              tags: item.attributes.tags
-                ? item.attributes.tags.match(regex)
-                : [],
-              dropped: item.attributes.dropped,
-              official: item.attributes.official,
-              created: new Date(item.attributes.created),
-            };
-          })
-        );
-      });
+  async function constructor() {
+    try {
+      const response = await fetch(
+        process.env.API_HOST + "/api/petrs?populate=*"
+      );
+      const data = await response.json();
+
+      SetPetrs(
+        data.data.map((item) => {
+          return {
+            id: item.id,
+            name: item.attributes.name,
+            author: item.attributes.author,
+            likes: item.attributes.likes,
+            image: item.attributes.image.data[0].attributes.url,
+            tags: item.attributes.tags ? item.attributes.tags.match(regex) : [],
+            dropped: item.attributes.dropped,
+            official: item.attributes.official,
+            created: new Date(item.attributes.created),
+            user: item.attributes.users_permissions_user,
+          };
+        })
+      );
+    } catch { }
   }
 
   function getPetr(id: number) {
