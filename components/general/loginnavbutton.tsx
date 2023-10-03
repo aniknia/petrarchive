@@ -9,15 +9,15 @@ export default function LoginNavButton() {
 
   function logout() {
     loginContext.logout();
-    setAuthorized(loginContext.authorized());
+    setAuthorized(loginContext.authorized);
     console.log(authorized);
   }
 
-  useEffect(() => {}, [loginContext]);
+  useEffect(() => { }, [loginContext]);
 
   return (
     <>
-      {loginContext.authorized() ? (
+      {loginContext.authorized ? (
         <Box>
           <Button
             size="md"
