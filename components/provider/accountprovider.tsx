@@ -11,7 +11,7 @@ export const AccountContext = createContext({
   register: (username: string, email: string, password: string) => { },
   login: (identifier: string, password: string) => { },
   logout: () => { },
-  authorized: () => { },
+  authorized: () => { return false },
 });
 
 export default function AccountProvider(props) {
