@@ -42,17 +42,18 @@ export default function AccountProvider(props) {
             username: data.user.username,
             jwt: data.jwt,
           });
-          return true;
+          return "true";
         }
+        else { return Promise.reject(response) }
       } catch (error) {
         console.log(error);
+        console.log("error")
+        return false
       }
     }
-    return false;
   }
 
   async function login(identifier: string, password: string) {
-    console.log(process.env.API_HOST + "/api/auth/local");
     if (authorized) {
       return "You're already logged in";
     } else {
@@ -77,11 +78,14 @@ export default function AccountProvider(props) {
           });
           return true;
         }
+        else {
+          return false
+        }
       } catch (error) {
         console.log(error);
+        return false
       }
     }
-    return false;
   }
 
   function logout() {
