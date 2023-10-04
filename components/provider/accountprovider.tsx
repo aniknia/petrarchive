@@ -1,3 +1,8 @@
+/**
+ * Account Provider
+ * This handles all of the api calls and the state of user authentication.
+ */
+
 import { createContext, useState } from "react";
 
 type User = {

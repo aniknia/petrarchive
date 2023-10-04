@@ -1,3 +1,10 @@
+/**
+ * Account Page
+ * This page contains the login/singup page as well as the account settings page. 
+ * I moved all of these pages in together so I wouldnt need to deal with someone visitng the login page when they were already logged in.
+ * Submit makes a call to the AccountContext which handles the api calls and state of user authentication.
+ *  */
+
 import {
   Box,
   Heading,
