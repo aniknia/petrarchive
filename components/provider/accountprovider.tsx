@@ -47,12 +47,11 @@ export default function AccountProvider(props) {
             username: data.user.username,
             jwt: data.jwt,
           });
-          return "true";
+          return true;
         }
         else { return Promise.reject(response) }
       } catch (error) {
         console.log(error);
-        console.log("error")
         return false
       }
     }

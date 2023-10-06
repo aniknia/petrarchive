@@ -23,7 +23,7 @@ export default function LoginNavButton() {
 
       ) : (
         <Button size="md" fontSize="lg" variant="ghost" color="current">
-          <Link href="/account">Log In</Link>
+          <Link href="/registration">Log In</Link>
         </Button>
       )}
     </>
