@@ -6,7 +6,7 @@ import { GearIcon } from "@primer/octicons-react";
 import { useRouter } from "../../node_modules/next/router";
 
 
-export default function SettingsNavButton() {
+export default function SettingsNavButton(props) {
     const loginContext = useContext(AccountContext);
     const router = useRouter();
 
@@ -18,7 +18,15 @@ export default function SettingsNavButton() {
 
     return (
         <>
-            <IconButton size="md" fontSize="lg" variant="ghost" color="current" icon={<GearIcon size={24} />} onClick={() => redirect()}>
+            <IconButton
+                size="md"
+                fontSize="lg"
+                aria-label={`Settings`}
+                variant="ghost"
+                color="current"
+                onClick={() => redirect()}
+                icon={<GearIcon size={24} />}
+                {...props}>
             </IconButton>
 
         </>
