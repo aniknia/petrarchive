@@ -11,20 +11,16 @@ export default function LoginNavButton() {
   return (
     <>
       {loginContext.authorized ? (
-        <Box>
-          <Button
-            size="md"
-            fontSize="lg"
-            variant="ghost"
-            color="current"
-            onClick={() => loginContext.logout()}
-          >
-            <Link href="/">Log Out</Link>
-          </Button>
-          <Button size="md" fontSize="lg" variant="ghost" color="current">
-            <Link href="/account">Account</Link>
-          </Button>
-        </Box>
+        <Button
+          size="md"
+          fontSize="lg"
+          variant="ghost"
+          color="current"
+          onClick={() => loginContext.logout()}
+        >
+          <Link href="/">Log Out</Link>
+        </Button>
+
       ) : (
         <Button size="md" fontSize="lg" variant="ghost" color="current">
           <Link href="/account">Log In</Link>
