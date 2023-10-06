@@ -4,8 +4,13 @@ import Link from "../../node_modules/next/link";
 import { ColorModeSwitcher } from "./colormodeswitcher";
 import Logo from "./logo";
 import LoginNavButton from "./loginnavbutton";
+import { AccountContext } from "../provider/accountprovider";
+import { useContext } from "react";
+import SettingsNavButton from "./settingsnavbutton";
 
 export default function NavBar() {
+  const loginContext = useContext(AccountContext)
+
   return (
     <>
       <Stack>
@@ -33,6 +38,7 @@ export default function NavBar() {
           </Center>
           <Flex p="1" flex="1" justify="end">
             <LoginNavButton />
+            {loginContext.authorized ? <SettingsNavButton /> : <></>}
             <ColorModeSwitcher />
           </Flex>
         </Flex>

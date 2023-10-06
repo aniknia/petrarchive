@@ -4,7 +4,7 @@ import Link from "../../node_modules/next/link";
 import { AccountContext } from "../provider/accountprovider";
 
 
-export default function AccountNavButton() {
+export default function SettingsNavButton() {
     const loginContext = useContext(AccountContext);
 
     useEffect(() => { }, [loginContext]);
@@ -12,7 +12,7 @@ export default function AccountNavButton() {
     return (
         <>
             <Button size="md" fontSize="lg" variant="ghost" color="current">
-                <Link href="/account">Account</Link>
+                <Link href="/settings">Settings</Link>
             </Button>
 
         </>

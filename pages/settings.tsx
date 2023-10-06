@@ -25,7 +25,7 @@ import { AccountContext } from "../components/provider/accountprovider";
 // TODO: Show in each input field if their email, password, etc is valid (or what the error is)
 // TODO: Implement Forgot my password
 
-export default function Account() {
+export default function Settings() {
   const [hasAccount, setHasAccount] = useState(true);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
