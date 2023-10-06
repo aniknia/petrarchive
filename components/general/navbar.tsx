@@ -18,25 +18,23 @@ export default function NavBar() {
           pr="2"
           height="48px"
         >
-          <Box p="1">
+          <Box p="1" flex="1">
             <Link href="/roadmap">
               <a>
                 <WorkflowIcon size={24} />
               </a>
             </Link>
           </Box>
-          <Box p="1">
+          <Box p="1" flex="1" align="center">
             <Link href="/">
               <a>
                 <Logo />
               </a>
             </Link>
           </Box>
-          <Box p="1">
-            <HStack>
-              <LoginNavButton />
-              <ColorModeSwitcher />
-            </HStack>
+          <Box p="1" flex="1" align="right">
+            <LoginNavButton />
+            <ColorModeSwitcher />
           </Box>
         </Flex>
         <Divider p="0" />
