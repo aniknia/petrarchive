@@ -10,7 +10,6 @@ export default function NavBar() {
     <>
       <Stack>
         <Flex
-          align="center"
           justify="space-between"
           gap="2"
           pt="2"
