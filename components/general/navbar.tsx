@@ -31,10 +31,10 @@ export default function NavBar() {
               </a>
             </Link>
           </Center>
-          <Box p="1" flex="1" align="right">
+          <Flex p="1" flex="1" justify="end">
             <LoginNavButton />
             <ColorModeSwitcher />
-          </Box>
+          </Flex>
         </Flex>
         <Divider p="0" />
       </Stack>
