@@ -8,6 +8,7 @@ import { createContext, useState } from "react";
 type User = {
   id: string;
   username: string;
+  email: string;
   jwt: string;
 }
 
@@ -45,6 +46,7 @@ export default function AccountProvider(props) {
           setCurrentUser({
             id: data.user.id,
             username: data.user.username,
+            email: data.user.email,
             jwt: data.jwt,
           });
           return true;
@@ -78,6 +80,7 @@ export default function AccountProvider(props) {
           setCurrentUser({
             id: data.user.id,
             username: data.user.username,
+            email: data.user.email,
             jwt: data.jwt,
           });
           return true;
