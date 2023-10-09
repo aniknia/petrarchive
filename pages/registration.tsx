@@ -12,7 +12,7 @@ import {
     Badge,
 } from "@chakra-ui/react";
 import Logo from "../components/general/logo";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { AccountContext } from "../components/provider/accountprovider";
 import { useRouter } from "../node_modules/next/router";
 
@@ -49,6 +49,9 @@ export default function Registration() {
             router.push("/");
         }
     }
+
+    useEffect(() => { if (loginContext.authorized) { router.push("/") } }, [loginContext])
+
     return <>
         <Box display="flex" justifyContent="center" height="100%">
             <Box
