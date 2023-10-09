@@ -36,7 +36,7 @@ export default function NavBar() {
               </a>
             </Link>
           </Center>
-          <Flex p="1" flex="1" justify="end">
+          <Flex p="1" flex="1" justify="end" alignItems='center'>
             <LoginNavButton />
             {loginContext.authorized ? <SettingsNavButton /> : <></>}
             <ColorModeSwitcher />
