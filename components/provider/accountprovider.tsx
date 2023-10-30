@@ -3,7 +3,8 @@
  * This handles all of the api calls and the state of user authentication.
  */
 
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
+import { hasCookie, getCookie, setCookie, deleteCookie } from 'cookies-next';
 
 type User = {
   id: string;
@@ -23,6 +24,13 @@ export const AccountContext = createContext({
 export default function AccountProvider(props) {
   const [authorized, setAuthorized] = useState(false);
   const [currentUser, setCurrentUser] = useState({} as User);
+
+  function constructor() {
+    if (hasCookie('user')) {
+      setCurrentUser(getCookie('user'))
+      setAuthorized(true)
+    }
+  }
 
   async function register(username: string, email: string, password: string) {
     if (authorized) {
@@ -52,6 +60,7 @@ export default function AccountProvider(props) {
             email: data.user.email,
             jwt: data.jwt,
           });
+          setCookie('user', currentUser);
           return true;
         }
         else { return Promise.reject(response) }
@@ -86,6 +95,7 @@ export default function AccountProvider(props) {
             email: data.user.email,
             jwt: data.jwt,
           });
+          setCookie('user', currentUser);
           return true;
         }
         else {
@@ -101,7 +111,12 @@ export default function AccountProvider(props) {
   function logout() {
     setAuthorized(false);
     setCurrentUser(null);
+    deleteCookie('user')
   }
+
+  useEffect(() => {
+    constructor();
+  }, [])
 
   return (
     <AccountContext.Provider
