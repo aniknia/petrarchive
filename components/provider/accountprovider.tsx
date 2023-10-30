@@ -27,7 +27,8 @@ export default function AccountProvider(props) {
 
   function constructor() {
     if (hasCookie('user')) {
-      setCurrentUser(getCookie('user'))
+      console.log(getCookie('user'))
+      //setCurrentUser(getCookie('user'))
       setAuthorized(true)
     }
   }
@@ -53,14 +54,15 @@ export default function AccountProvider(props) {
         );
         if (response.ok) {
           const data = await response.json();
-          setAuthorized(true);
-          setCurrentUser({
+          let user = {
             id: data.user.id,
             username: data.user.username,
             email: data.user.email,
             jwt: data.jwt,
-          });
-          setCookie('user', currentUser);
+          }
+          setAuthorized(true);
+          setCurrentUser(user);
+          setCookie('user', user);
           return true;
         }
         else { return Promise.reject(response) }
@@ -88,14 +90,15 @@ export default function AccountProvider(props) {
         });
         if (response.ok) {
           const data = await response.json();
-          setAuthorized(true);
-          setCurrentUser({
+          let user = {
             id: data.user.id,
             username: data.user.username,
             email: data.user.email,
             jwt: data.jwt,
-          });
-          setCookie('user', currentUser);
+          }
+          setAuthorized(true);
+          setCurrentUser(user);
+          setCookie('user', user);
           return true;
         }
         else {
