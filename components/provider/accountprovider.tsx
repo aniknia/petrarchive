@@ -33,6 +33,9 @@ export default function AccountProvider(props) {
           process.env.API_HOST + "/api/auth/local/register",
           {
             method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
             body: JSON.stringify({
               username: username,
               email: email,
