@@ -11,10 +11,11 @@ import {
     Text,
     Badge,
 } from "@chakra-ui/react";
-import Logo from "../components/general/logo";
 import { useContext, useState, useEffect } from "react";
 import { AccountContext } from "../components/provider/accountprovider";
 import { useRouter } from "../node_modules/next/router";
+
+// TODO: Add more error messages
 
 export default function Registration() {
 
@@ -27,6 +28,7 @@ export default function Registration() {
     const router = useRouter();
 
     const loginContext = useContext(AccountContext);
+    useEffect(() => { if (loginContext.authorized) { router.push("/") } }, [loginContext])
 
     function handleUsernameChange(event) {
         setUsername(event.target.value);
@@ -46,11 +48,9 @@ export default function Registration() {
         }
         setError(!response)
         if (!error) {
-            router.push("/");
+
         }
     }
-
-    useEffect(() => { if (loginContext.authorized) { router.push("/") } }, [loginContext])
 
     return <>
         <Box display="flex" justifyContent="center" height="100%">
@@ -91,13 +91,13 @@ export default function Registration() {
                     />
                 </FormControl>
 
-                {error ? <Badge colorScheme='red' w='100%'>
+                {error ? <Badge colorScheme='red'>
                     Your username or password was incorrect.
                 </Badge> : <></>}
 
                 {hasAccount ?
                     <Box display="flex" justifyContent="center" mt="15px">
-                        <Link color="teal.500">
+                        <Link href="/forgotpassword" color="teal.500">
                             Forgot password?
                         </Link>
                     </Box> : <></>}
