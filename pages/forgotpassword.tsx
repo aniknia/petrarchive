@@ -50,37 +50,36 @@ export default function ForgotPassword() {
                 setEmailErrorMessage("Something went wrong.")
         }
     }
-}
 
-return (
-    <>
-        <Box display="flex" justifyContent="center" height="100%">
-            <Box
-                width='lg'
-                borderWidth="1px"
-                borderRadius="lg"
-                margin="50px"
-                padding="20px"
-            >
-                <Center>
-                    <Heading size="lg">Forgot Password</Heading>
-                </Center>
+    return (
+        <>
+            <Box display="flex" justifyContent="center" height="100%">
+                <Box
+                    width='lg'
+                    borderWidth="1px"
+                    borderRadius="lg"
+                    margin="50px"
+                    padding="20px"
+                >
+                    <Center>
+                        <Heading size="lg">Forgot Password</Heading>
+                    </Center>
 
-                <Heading size='sm' pt="5" pb='1'>Email</Heading>
-                <Input
-                    size="md"
-                    pr='4.5rem'
-                    type='email'
-                    value={email}
-                    placeholder='Enter your email'
-                    onChange={handleEmailChange}
-                />
-                {emailError ? <Badge colorScheme='red'>{emailErrorMessage}</Badge> : <></>}
-                {emailSuccess ? <Badge colorScheme='green'>{emailSuccessMessage}</Badge> : <></>}
+                    <Heading size='sm' pt="5" pb='1'>Email</Heading>
+                    <Input
+                        size="md"
+                        pr='4.5rem'
+                        type='email'
+                        value={email}
+                        placeholder='Enter your email'
+                        onChange={handleEmailChange}
+                    />
+                    {emailError ? <Badge colorScheme='red'>{emailErrorMessage}</Badge> : <></>}
+                    {emailSuccess ? <Badge colorScheme='green'>{emailSuccessMessage}</Badge> : <></>}
 
-                <Center pt="5"><Button onClick={forgotPassword}>Submit</Button></Center>
-            </Box>
-        </Box >
-    </>
-);
+                    <Center pt="5"><Button onClick={forgotPassword}>Submit</Button></Center>
+                </Box>
+            </Box >
+        </>
+    );
 }
