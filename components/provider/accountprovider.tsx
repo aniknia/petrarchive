@@ -33,7 +33,8 @@ export default function AccountProvider(props) {
 
   async function constructor() {
     if (hasCookie('user')) {
-      let tempUser = JSON.parse(await getCookie('user'));
+      let cookie = await getCookie('user');
+      let tempUser = JSON.parse(cookie);
       setCurrentUser(tempUser);
       setAuthorized(true);
     }
