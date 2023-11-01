@@ -5,6 +5,7 @@
 
 // TODO: review response.ok gives expected out puts and pass errors along
 // TODO: check if try catch are needed
+// TODO: fix constructor cookie check, i think what i did might just push the problem down the road
 
 import { createContext, useState, useEffect } from "react";
 import { hasCookie, getCookie, setCookie, deleteCookie } from 'cookies-next';
