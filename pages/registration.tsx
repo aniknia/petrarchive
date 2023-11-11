@@ -30,15 +30,10 @@ export default function Registration() {
     const loginContext = useContext(AccountContext);
     useEffect(() => { if (loginContext.authorized) { router.push("/") } }, [loginContext])
 
-    function handleUsernameChange(event) {
-        setUsername(event.target.value);
-    }
-    function handleEmailChange(event) {
-        setEmail(event.target.value);
-    }
-    function handlePasswordChange(event) {
-        setPassword(event.target.value);
-    }
+    const handleUsernameChange = (event) => setUsername(event.target.value)
+    const handleEmailChange = (event) => setEmail(event.target.value)
+    const handlePasswordChange = (event) => setPassword(event.target.value)
+
     async function submit() {
         let response;
         if (hasAccount) {
