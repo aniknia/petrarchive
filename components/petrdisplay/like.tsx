@@ -2,7 +2,7 @@ import { IconButton } from "@chakra-ui/react";
 import { HeartFillIcon } from "@primer/octicons-react";
 import { useEffect, useState } from "react";
 import CountUp from "react-countup";
-import { getCookies, setCookies, hasCookie, removeCookies } from "cookies-next";
+import { getCookies, setCookie, hasCookie } from "cookies-next";
 import PetrProvider from "../provider/petrprovider";
 
 // TODO: likes counter starts at a dcrement of one, fix this
@@ -19,7 +19,7 @@ export default function Like(props) {
     if (hasCookie(props.id)) {
       return getCookies(props.id)[props.id] === "true" ? true : false;
     } else {
-      setCookies(props.id, false, { sameSite: "lax" });
+      setCookie(props.id, false, { sameSite: "none" });
       return getCookies(props.id)[props.id] === "true" ? true : false;
     }
   }
@@ -52,7 +52,7 @@ export default function Like(props) {
       updateLikes(likeState);
       setLastLikes(likes);
       likeState ? setLikes(likes + 1) : setLikes(likes - 1);
-      setCookies(props.id, likeState ? true : false);
+      setCookie(props.id, likeState ? true : false);
       setLastLikeState(likeState);
     }
     setDuration(0.1);

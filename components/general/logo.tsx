@@ -50,5 +50,5 @@ export default function Logo() {
     }
   }, [month]);
 
-  return <Image src={source} alt="Petr" height="40px" width="60px" />;
+  return <Image src={source} alt="Petr" height={40} width={60} />;
 }
