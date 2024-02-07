@@ -6,9 +6,10 @@ export default function PetrImage(props) {
   const [official, setOfficial] = useState(props.official);
   const [dropped, setDropped] = useState(props.dropped);
   const imgStyle = { display: "inline-block" };
+  const size = 320
   return (
     <>
-      <Box width={320} height={320} position="relative">
+      <Box width={size} height={size} position="relative">
         {official ? (
           <Badge
             colorScheme="green"
@@ -51,9 +52,8 @@ export default function PetrImage(props) {
           placeholder="blur"
           blurDataURL="https://res.cloudinary.com/dwchlaftc/image/upload/v1654477692/petr_white_815f9fc831.png"
           alt="Petr"
-          width={320}
-          height={320}
-          style={imgStyle}
+          width={size}
+          height={size}
         />
       </Box>
     </>

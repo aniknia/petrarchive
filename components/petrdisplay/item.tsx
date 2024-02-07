@@ -15,6 +15,8 @@ export default function Item(props) {
   const [hover, setHover] = useState(false);
   const [time, setTime] = useState(0);
   const [touchLocation, setTouchLocation] = useState([null, null]);
+  const width = 320;
+  const height = 364;
 
   function startTouch(event) {
     let t = new Date();
@@ -38,8 +40,8 @@ export default function Item(props) {
   return (
     <>
       <Box
-        width={320}
-        height={364}
+        width={width}
+        height={height}
         m="15"
         borderWidth="1px"
         borderRadius="lg"
