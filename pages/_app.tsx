@@ -1,4 +1,4 @@
-import { ChakraProvider, theme } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
 import { PrimeReactProvider } from 'primereact/api';
 import Layout from "../components/general/layout";
 import PetrProvider from "../components/provider/petrprovider";
