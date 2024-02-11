@@ -41,9 +41,11 @@ export default function Registration() {
         } else {
             response = await loginContext.register(username, email, password)
         }
-        setError(!response)
-        if (!error) {
-
+        if (response.ok) {
+            setError(false)
+        }
+        else {
+            setError(true)
         }
     }
 
