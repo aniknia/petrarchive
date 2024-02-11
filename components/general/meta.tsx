@@ -9,12 +9,7 @@ export default function Meta() {
         <meta name="description" content="An archive of the UCI Petrs" />
         <link rel="icon" href="favicon.ico" />
       </Head>
-      <Script
-        async
-        defer
-        data-website-id="3cd18249-8e44-48b9-a9b6-74c380dba0ac"
-        src="https://umami.niknia.dev/umami.js"
-      ></Script>
+      <script async src="https://umami.petrarchive.com/script.js" data-website-id="a0a6d89f-bfa3-4ea9-9815-d41a90398512"></script>
     </>
   );
 }
