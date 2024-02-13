@@ -25,6 +25,7 @@ export const AccountContext = createContext({
   updatePassword: (currentPassword: string, newPassword: string, confirmNewPassword: string) => { },
   forgotPassword: (email: string) => { },
   resetPassword: (code: string, password: string, confirmPassword: string) => { },
+  addPetr: (name: string, created: Date, dropped: boolean, image: File) => { },
   authorized: {} as boolean,
 });
 
@@ -226,6 +227,10 @@ export default function AccountProvider(props) {
     }
   }
 
+  async function addPetr(name: string, created: Date, dropped: boolean, image: File) {
+
+  }
+
   useEffect(() => {
     constructor();
   }, [])
@@ -240,6 +245,7 @@ export default function AccountProvider(props) {
         updatePassword: udpatePassword,
         forgotPassword: forgotPassword,
         resetPassword: resetPassword,
+        addPetr: addPetr,
         authorized: authorized,
       }}
     >
