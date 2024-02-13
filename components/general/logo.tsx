@@ -1,4 +1,4 @@
-import Image from "../../node_modules/next/image";
+import { Image } from "@chakra-ui/react"
 import petr from "../../public/images/petr_head.png";
 import merry_petr from "../../public/images/seasonal/Merry_Petr.png";
 import spooky_petr from "../../public/images/seasonal/Spooky_Petr.png";
@@ -50,5 +50,5 @@ export default function Logo() {
     }
   }, [month]);
 
-  return <Image src={source} alt="Petr" height={40} width={60} />;
+  return <Image src={source.src} alt="Petr" height="40px" width="auto" />;
 }
