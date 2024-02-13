@@ -74,7 +74,7 @@ export default function Add() {
             <Box m="15">
                 <FormControl isInvalid={imageError} id="file" h="300px" w="300px" isRequired>
                     <label>
-                        <Image src={image} alt="" position="absolute" left="0" top="0" h="100%" w="100%" borderRadius="10px" />
+                        <Image src={image.toString()} alt="" position="absolute" left="0" top="0" h="100%" w="100%" borderRadius="10px" />
                         <Input type="file" accept="image/png, image/jpeg" onChange={handleImageChange} style={{ display: 'none' }} />
                         <Button as='span' h="100%" width="100%" variant='outline' pl="6" pr="6" pt="4" pb="4">
                             {image ? '' :
