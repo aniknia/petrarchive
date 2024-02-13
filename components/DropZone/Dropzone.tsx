@@ -1,8 +1,8 @@
 import { Button, Center, CenterProps, HStack, Icon, Square, Text, VStack } from '@chakra-ui/react'
 import { FiUploadCloud } from 'react-icons/fi'
 
-export const Dropzone = (props: CenterProps) => (
-  <Center h="100%" borderWidth="1px" borderRadius="lg" pl="6" pr="6" pt="4" pb="4" {...props}>
+export const Dropzone = (centerProps: CenterProps, props) => (
+  <Center h="100%" borderWidth="1px" borderRadius="lg" pl="6" pr="6" pt="4" pb="4" bgImage={props.image ? props.image : ''} {...centerProps}>
     <VStack spacing="3">
       <Square size="10" bg="bg.subtle" borderRadius="lg">
         <Icon as={FiUploadCloud} boxSize="5" color="fg.muted" />
