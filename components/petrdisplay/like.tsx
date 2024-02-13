@@ -7,6 +7,7 @@ import PetrProvider from "../provider/petrprovider";
 
 // TODO: likes counter starts at a dcrement of one, fix this
 // TODO: implement a cleaner cookies system
+// TODO: move fetch call to petrprovider
 
 export default function Like(props) {
   const [lastLikes, setLastLikes] = useState(0);
@@ -39,7 +40,7 @@ export default function Like(props) {
         fetch(process.env.API_HOST + "/api/petrs/" + props.id, {
           method: "PUT",
           headers: {
-            Authorization: "Bearer " + process.env.API_KEY,
+            Authorization: "Bearer " + process.env.API_KEY_UPDATE_LIKES,
             "Content-Type": "application/json",
           },
           body: body,
