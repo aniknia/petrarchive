@@ -119,7 +119,7 @@ export default function Add() {
                         size="md"
                         type="date"
                         max={currentDate}
-                        value={created}
+                        value={created.toString()}
                         onChange={handleCreatedChange}
                     />
                     {!createdError ? (
