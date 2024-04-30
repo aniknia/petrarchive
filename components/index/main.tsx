@@ -10,7 +10,7 @@ export default function Main() {
   const value = useContext(PetrContext);
   const sort = useContext(SearchContext);
 
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
 
   return (
     <>
@@ -23,13 +23,10 @@ export default function Main() {
               switch (sort.sortType) {
                 case "Newest":
                   return b.created.getTime() - a.created.getTime();
-                  break;
                 case "Oldest":
                   return a.created.getTime() - b.created.getTime();
-                  break;
                 case "Most Liked":
                   return b.likes - a.likes;
-                  break;
                 default:
                   return b.created.getTime() - a.created.getTime();
               }
