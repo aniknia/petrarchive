@@ -28,8 +28,7 @@ export const PetrContext = createContext({
   constructor: () => { },
   getPetr: (id: number) => { },
   putPetr: (id: number) => { },
-  addLikes: (id: number) => { },
-  removeLikes: (id: number) => { },
+  updateLikes: (id: number, likeState: boolean) => { },
 });
 
 export async function getStaticProps() {
@@ -74,8 +73,27 @@ export default function PetrProvider(props) {
   function putPetr(id: number) {
     console.log("putPetr");
   }
-  function addLikes(id: number) {
-    console.log("addLikes");
+  function updateLikes(id: number, likeState: boolean) {
+    fetch(process.env.API_HOST + "/api/petrs/" + id)
+      .then((response) => response.json())
+      .then((data) => {
+        let body = JSON.stringify({
+          data: {
+            id: id,
+            likes: (data.data.attributes.likes = likeState
+              ? data.data.attributes.likes + 1
+              : data.data.attributes.likes - 1),
+          },
+        });
+        fetch(process.env.API_HOST + "/api/petrs/" + id, {
+          method: "PUT",
+          headers: {
+            Authorization: "Bearer " + process.env.API_KEY_UPDATE_LIKES,
+            "Content-Type": "application/json",
+          },
+          body: body,
+        }).then((response) => response.json());
+      });
   }
   function removeLikes(id: number) {
     console.log("removeLikes");
@@ -93,8 +111,7 @@ export default function PetrProvider(props) {
         constructor: constructor,
         getPetr: getPetr,
         putPetr: putPetr,
-        addLikes: addLikes,
-        removeLikes: removeLikes,
+        updateLikes: updateLikes,
       }}
     >
       {props.children}

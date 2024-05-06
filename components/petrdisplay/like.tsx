@@ -1,13 +1,12 @@
 import { IconButton } from "@chakra-ui/react";
 import { HeartFillIcon } from "@primer/octicons-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import CountUp from "react-countup";
 import { getCookies, setCookie, hasCookie } from "cookies-next";
-import PetrProvider from "../provider/petrprovider";
+import { PetrContext } from "../provider/petrprovider";
 
 // TODO: likes counter starts at a dcrement of one, fix this
 // TODO: implement a cleaner cookies system
-// TODO: move fetch call to petrprovider
 
 export default function Like(props) {
   const [lastLikes, setLastLikes] = useState(0);
@@ -15,6 +14,8 @@ export default function Like(props) {
   const [likeState, setLikeState] = useState(verifyCookies());
   const [lastLikeState, setLastLikeState] = useState(verifyCookies());
   const [duration, setDuration] = useState(1.5);
+
+  const petr = useContext(PetrContext);
 
   function verifyCookies() {
     if (hasCookie(props.id)) {
@@ -25,32 +26,9 @@ export default function Like(props) {
     }
   }
 
-  function updateLikes(likeState: boolean) {
-    fetch(process.env.API_HOST + "/api/petrs/" + props.id)
-      .then((response) => response.json())
-      .then((data) => {
-        let body = JSON.stringify({
-          data: {
-            id: props.id,
-            likes: (data.data.attributes.likes = likeState
-              ? data.data.attributes.likes + 1
-              : data.data.attributes.likes - 1),
-          },
-        });
-        fetch(process.env.API_HOST + "/api/petrs/" + props.id, {
-          method: "PUT",
-          headers: {
-            Authorization: "Bearer " + process.env.API_KEY_UPDATE_LIKES,
-            "Content-Type": "application/json",
-          },
-          body: body,
-        }).then((response) => response.json());
-      });
-  }
-
   useEffect(() => {
     if (likeState !== lastLikeState) {
-      updateLikes(likeState);
+      petr.updateLikes(props.id, likeState);
       setLastLikes(likes);
       likeState ? setLikes(likes + 1) : setLikes(likes - 1);
       setCookie(props.id, likeState ? true : false);
