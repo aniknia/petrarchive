@@ -50,18 +50,22 @@ export default function PetrProvider(props) {
 
       SetPetrs(
         data.data.map((item) => {
-          return {
-            id: item.id,
-            name: item.attributes.name,
-            author: item.attributes.author,
-            likes: item.attributes.likes,
-            image: item.attributes.image.data[0].attributes.url,
-            tags: item.attributes.tags ? item.attributes.tags.match(regex) : [],
-            dropped: item.attributes.dropped,
-            official: item.attributes.official,
-            created: new Date(item.attributes.created),
-            user: item.attributes.users_permissions_user,
-          };
+          try {
+            return {
+              id: item.id,
+              name: item.attributes.name,
+              author: item.attributes.author,
+              likes: item.attributes.likes,
+              image: item.attributes.image.data[0].attributes.url,
+              tags: item.attributes.tags ? item.attributes.tags.match(regex) : [],
+              dropped: item.attributes.dropped,
+              official: item.attributes.official,
+              created: new Date(item.attributes.created),
+              user: item.attributes.users_permissions_user,
+            };
+          }
+          catch { }
+
         })
       );
     } catch { }
