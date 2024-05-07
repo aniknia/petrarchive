@@ -36,8 +36,6 @@ export default function AccountProvider(props) {
   async function constructor() {
     if (hasCookie('user')) {
       let cookie = await getCookie('user');
-      console.log(typeof (cookie));
-      console.log(cookie)
       let tempUser = JSON.parse(cookie as string);
       setCurrentUser(tempUser);
       setAuthorized(true);
@@ -227,7 +225,7 @@ export default function AccountProvider(props) {
     }
   }
 
-  async function addPetr(name: string, created: Date, dropped: boolean, image: File) {
+  async function addPetr(name: string, created: string, dropped: boolean, image: File) {
 
   }
 

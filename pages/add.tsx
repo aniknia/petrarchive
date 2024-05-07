@@ -5,22 +5,25 @@ import { AccountContext } from "../components/provider/accountprovider";
 import Link from "../node_modules/next/link";
 import { getCookie, hasCookie, setCookie } from "cookies-next";
 
+//TODO: add a way for images to be saved as a cookie
+
 export default function Add() {
     const loginContext = useContext(AccountContext);
 
-    const [name, setName] = useState(hasCookie('petrname') ? getCookie('petrname') : '')
+    const [name, setName] = useState(hasCookie('petrname') ? String(getCookie('petrname')) : '')
     const [nameError, setNameError] = useState(false)
     const handleNameChange = (event) => {
-        if (event.target.value) {
+        if (typeof event.target.value == 'string' && event.target.value) {
             setName(event.target.value)
             setNameError(false)
         }
         else {
+            setName('')
             setNameError(true)
         }
     }
 
-    const [created, setCreated] = useState(hasCookie('petrcreated') ? getCookie('petrcreated') : new Date())
+    const [created, setCreated] = useState(hasCookie('petrcreated') ? getCookie('petrcreated') : new Date().toJSON().slice(0, 10))
     const [createdError, setCreatedError] = useState(false)
     const currentDate = new Date().toJSON().slice(0, 10);
     const handleCreatedChange = (event) => {
@@ -29,27 +32,25 @@ export default function Add() {
             setCreatedError(false)
         }
         else {
+            setCreated(new Date().toJSON().slice(0, 10))
             setCreatedError(true)
         }
     }
 
 
-    const [dropped, setDropped] = useState(hasCookie('petrdropped') ? getCookie('petrdropped') : false)
+    const [dropped, setDropped] = useState(hasCookie('petrdropped') ? Boolean(getCookie('petrdropped')) : false)
     const handleDroppedChange = (event) => setDropped(event.target.value)
 
-    const [image, setImage] = useState(hasCookie('petrimage') ? getCookie('petrimage') : '')
-    const [imageFile, setImageFile] = useState(hasCookie('petrimagefile') ? getCookie('petrimagefile') : '')
+    const [image, setImage] = useState(new Blob())
     const [imageError, setImageError] = useState(false)
     const handleImageChange = (event) => {
         if (event.target.files[0]) {
-            let temp = URL.createObjectURL(event.target.files[0])
-            console.log(temp)
-            setImage(temp)
-            setImageFile(event.target.files[0])
+            setImage(event.target.files[0])
             setImageError(false)
 
         }
         else {
+            setImage(new Blob())
             setImageError(true)
         }
 
@@ -58,14 +59,15 @@ export default function Add() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const cancelRef = useRef()
 
-    function handleSubmit() { }
+    function handleSubmit() {
+        loginContext.addPetr(name, created, dropped, image)
+    }
 
     useEffect(() => {
-        setCookie('petrname', name)
-        setCookie('petrcreated', created)
-        setCookie('petrdropped', dropped)
-        setCookie('petrimage', image)
-        setCookie('petrimagefile', imageFile)
+        setCookie('petrname', name, { sameSite: true })
+        setCookie('petrcreated', created, { sameSite: true })
+        setCookie('petrdropped', dropped, { sameSite: true })
+        setCookie('petrimage', image, { sameSite: true })
     }, [name, created, dropped, image])
 
     return (<>
@@ -74,10 +76,10 @@ export default function Add() {
             <Box m="15">
                 <FormControl isInvalid={imageError} id="file" h="300px" w="300px" isRequired>
                     <label>
-                        <Image src={image.toString()} alt="" position="absolute" left="0" top="0" h="100%" w="100%" borderRadius="10px" />
+                        {image.type == '' ? '' : <Image src={URL.createObjectURL(image).toString()} alt="" position="absolute" left="0" top="0" h="100%" w="100%" borderRadius="lg" />}
                         <Input type="file" accept="image/png, image/jpeg" onChange={handleImageChange} style={{ display: 'none' }} />
                         <Button as='span' h="100%" width="100%" variant='outline' pl="6" pr="6" pt="4" pb="4">
-                            {image ? '' :
+                            {image.type == '' ?
                                 <VStack spacing="3">
                                     <Square size="10" bg="bg.subtle" borderRadius="lg">
                                         <Icon as={FiUploadCloud} boxSize="5" color="fg.muted" />
@@ -93,6 +95,7 @@ export default function Add() {
                                         </Text>
                                     </VStack>
                                 </VStack>
+                                : ''
                             }
                         </Button>
                     </label>
@@ -133,7 +136,7 @@ export default function Add() {
 
                 <FormControl display='flex' alignItems='center' mt="10px">
                     <FormLabel htmlFor='dropswitch' mb='0'>Dropped</FormLabel>
-                    <Switch id='dropswitch' isChecked={Boolean(dropped)} onChange={handleDroppedChange} />
+                    <Switch id='dropswitch' isChecked={dropped} onChange={handleDroppedChange} />
                 </FormControl>
 
                 <FormControl mt='10px'>
