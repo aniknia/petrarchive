@@ -25,7 +25,7 @@ export const AccountContext = createContext({
   updatePassword: (currentPassword: string, newPassword: string, confirmNewPassword: string) => { },
   forgotPassword: (email: string) => { },
   resetPassword: (code: string, password: string, confirmPassword: string) => { },
-  addPetr: (name: string, created: Date, dropped: boolean, image: File) => { },
+  addPetr: (name: string, created: string, dropped: boolean, image: File) => { },
   authorized: {} as boolean,
 });
 
