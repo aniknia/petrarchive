@@ -23,7 +23,7 @@ export default function Add() {
         }
     }
 
-    const [created, setCreated] = useState(hasCookie('petrcreated') ? getCookie('petrcreated') : new Date().toJSON().slice(0, 10))
+    const [created, setCreated] = useState(hasCookie('petrcreated') ? String(getCookie('petrcreated')) : String(new Date().toJSON().slice(0, 10)))
     const [createdError, setCreatedError] = useState(false)
     const currentDate = new Date().toJSON().slice(0, 10);
     const handleCreatedChange = (event) => {
