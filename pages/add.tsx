@@ -136,7 +136,7 @@ export default function Add() {
 
                 <FormControl display='flex' alignItems='center' mt="10px">
                     <FormLabel htmlFor='dropswitch' mb='0'>Dropped</FormLabel>
-                    <Switch id='dropswitch' isChecked={dropped} onChange={handleDroppedChange} />
+                    <Switch id='dropswitch' onChange={handleDroppedChange} />
                 </FormControl>
 
                 <FormControl mt='10px'>

@@ -2,7 +2,6 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { PrimeReactProvider } from 'primereact/api';
 import Layout from "../components/general/layout";
 import PetrProvider from "../components/provider/petrprovider";
-import SearchProvider from "../components/provider/searchprovider";
 import AccountProvider from "../components/provider/accountprovider";
 
 export default function MyApp({ Component, pageProps }) {
@@ -12,11 +11,9 @@ export default function MyApp({ Component, pageProps }) {
         <PrimeReactProvider>
           <AccountProvider>
             <PetrProvider>
-              <SearchProvider>
-                <Layout>
-                  <Component {...pageProps} />
-                </Layout>
-              </SearchProvider>
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
             </PetrProvider>
           </AccountProvider>
         </PrimeReactProvider>

@@ -1,26 +1,31 @@
-import { Flex } from "@chakra-ui/react";
-import Filter from "../filter/filter";
+import { Flex, Stack, VStack } from "@chakra-ui/react";
+import { useState } from "react";
 
 import Item from "../petrdisplay/item";
 import { useContext, useEffect } from "react";
 import { PetrContext } from "../provider/petrprovider";
-import { SearchContext } from "../provider/searchprovider";
+import Sort from "../filter/sort";
 
 export default function Main() {
   const value = useContext(PetrContext);
-  const sort = useContext(SearchContext);
+  const [sortValue, setSortValue] = useState("newest");
 
   useEffect(() => { }, []);
 
   return (
     <>
       {" "}
-      <Filter />
+      <Stack>
+        <VStack gap="2" pt="2" pl="7" pr="7">
+          <Sort state={sortValue} changeState={setSortValue} />
+        </VStack>
+      </Stack>
+
       <Flex justify="space-around" wrap="wrap">
         {value.petrs &&
           value.petrs
             .sort((a, b) => {
-              switch (sort.sortType) {
+              switch (sortValue) {
                 case "Newest":
                   return b.created.getTime() - a.created.getTime();
                 case "Oldest":
@@ -32,7 +37,9 @@ export default function Main() {
               }
             })
             .map((item) => {
-              return <Item key={item.id} petr={item} />;
+              if (item) {
+                return <Item key={item.id} petr={item} />;
+              }
             })}
       </Flex>
     </>
