@@ -225,7 +225,8 @@ export default function AccountProvider(props) {
     }
   }
 
-  async function addPetr(name: string, created: string, dropped: boolean, image: File) {
+  async function addPetr(name: string, created: string, dropped: boolean, image: Blob) {
+
 
   }
 
