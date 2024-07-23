@@ -46,6 +46,7 @@ export default function Like(props) {
         aria-label="Like Petr"
         icon={<HeartFillIcon size={24} />}
         isRound={true}
+        background="none"
         onClick={() => setLikeState(!likeState)}
       />
     </>
