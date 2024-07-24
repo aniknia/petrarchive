@@ -68,9 +68,7 @@ export default function Roadmap() {
             </Badge>
           </Box>
           <Box>
-            I want people to be able to have a place to like and share their
-            favourite petrs. This might help people making petrs zero in on the
-            most popular designs and what petrs could be remade or revived.
+            I want people to be able to have a place to like and share their favourite petrs. This might help people making petrs zero in on the most popular designs and what petrs could be remade or revived.
           </Box>
         </Box>
 
@@ -84,8 +82,7 @@ export default function Roadmap() {
             </Badge>
           </Box>
           <Box>
-            Custom Icons for holiday cheer. December and October are finished
-            but others are soon to come!
+            Custom Icons for holiday cheer. December and October are finished but others are soon to come! You can send your suggestions to the email listed above
           </Box>
         </Box>
 
@@ -99,8 +96,7 @@ export default function Roadmap() {
             </Badge>
           </Box>
           <Box>
-            Sorting will allow people to find the most recent (or the oldest)
-            petrs in the petr archive.
+            Sorting will allow people to find the most recent (or the oldest) petrs in the petr archive. Other sorting schemes can come later, email me if you have suggestions.
           </Box>
         </Box>
 
@@ -114,8 +110,7 @@ export default function Roadmap() {
             </Badge>
           </Box>
           <Box>
-            Search functionality will allow users to find their favourite petrs
-            or find what petrs are missing. Search by tag, petr name, or author.
+            Search functionality will allow users to find their favourite petrs or find what petrs are missing. Search by tag, petr name, author, or any combination of the three.
           </Box>
         </Box>
 
@@ -129,8 +124,7 @@ export default function Roadmap() {
             </Badge>
           </Box>
           <Box>
-            Accounts will be the stepping stone for the submition system which
-            will come in the next update.
+            Accounts will be the stepping stone for the submition system which will come in the next update. These will take some to time make sure they are secure and functional.
           </Box>
         </Box>
 
@@ -144,9 +138,7 @@ export default function Roadmap() {
             </Badge>
           </Box>
           <Box>
-            Submissions will allow people to submit their own petrs, this can
-            help those who drops stickers to gauge their popularity before
-            sinking money into their designs.
+            Submissions will allow people to submit their own petrs, this can help those who drops stickers to gauge their popularity before sinking money into their designs.
           </Box>
         </Box>
 
@@ -160,8 +152,7 @@ export default function Roadmap() {
             </Badge>
           </Box>
           <Box>
-            Incresased responsivness, quicker loads, cleaner ui, more fun to
-            come...
+            Incresased responsivness, quicker loads, cleaner ui, more fun to come... Let me know if you have any ideas. You can visit our github to see what others have suggested.
           </Box>
         </Box>
       </Chrono>
