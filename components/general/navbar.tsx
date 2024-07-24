@@ -1,15 +1,20 @@
-import { Stack, Flex, Box, Divider } from "@chakra-ui/react";
-import { QuestionIcon, WorkflowIcon } from "@primer/octicons-react";
+import { Stack, Flex, Box, Center, Divider, IconButton } from "@chakra-ui/react";
+import { PlusIcon, WorkflowIcon } from "@primer/octicons-react";
 import Link from "../../node_modules/next/link";
 import { ColorModeSwitcher } from "./colormodeswitcher";
 import Logo from "./logo";
+import LoginNavButton from "./loginnavbutton";
+import { AccountContext } from "../provider/accountprovider";
+import { useContext } from "react";
+import SettingsNavButton from "./settingsnavbutton";
 
-export default function NavBar() {
+export default function NavBar(props) {
+  const loginContext = useContext(AccountContext)
+
   return (
     <>
       <Stack>
         <Flex
-          align="center"
           justify="space-between"
           gap="2"
           pt="2"
@@ -17,23 +22,29 @@ export default function NavBar() {
           pr="2"
           height="48px"
         >
-          <Box p="1">
+          <Flex p="1" flex="1" alignItems='center'>
             <Link href="/roadmap">
-              <a>
-                <WorkflowIcon size={24} />
-              </a>
+              <IconButton
+                size="md"
+                fontSize="lg"
+                aria-label={`Add a Petr`}
+                variant="ghost"
+                color="current"
+                icon={<WorkflowIcon size={24} />}
+                {...props}
+              />
             </Link>
-          </Box>
-          <Box p="1">
+          </Flex>
+          <Center p="1" flex="1">
             <Link href="/">
-              <a>
-                <Logo />
-              </a>
+              <Logo />
             </Link>
-          </Box>
-          <Box p="1">
+          </Center>
+          <Flex p="1" flex="1" justify="end" alignItems='center'>
+            <LoginNavButton />
+            {loginContext.authorized ? <SettingsNavButton /> : <></>}
             <ColorModeSwitcher />
-          </Box>
+          </Flex>
         </Flex>
         <Divider p="0" />
       </Stack>

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/pro-theme": "^0.10.0",
     "@chakra-ui/react": "^2.1.2",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
@@ -19,14 +20,19 @@
     "framer-motion": "^6.3.6",
     "fuse.js": "^6.6.2",
     "n": "^9.1.0",
-    "next": "12.1.6",
-    "react": "18.1.0",
+    "next": "^14.0.3",
+    "next-cloudinary": "^6.6.2",
+    "prettier": "^3.0.3",
+    "primereact": "^10.0.9",
+    "react": "^18.2.0",
     "react-chrono": "^1.19.1",
     "react-countup": "^6.2.0",
+    "react-datepicker": "^6.1.0",
     "react-device-detect": "^2.2.3",
-    "react-dom": "18.1.0",
+    "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
-    "sharp": "^0.31.3"
+    "react-router-dom": "^6.14.2",
+    "sharp": "^0.33.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.38",
