@@ -43,18 +43,6 @@ export default function NavBar(props) {
           <Flex p="1" flex="1" justify="end" alignItems='center'>
             <LoginNavButton />
             {loginContext.authorized ? <SettingsNavButton /> : <></>}
-            <Link href='/add'>
-              <IconButton
-                size="md"
-                fontSize="lg"
-                aria-label={`Add a Petr`}
-                variant="ghost"
-                color="current"
-                icon={<PlusIcon size={24} />}
-                {...props}
-              />
-            </Link>
-
             <ColorModeSwitcher />
           </Flex>
         </Flex>
