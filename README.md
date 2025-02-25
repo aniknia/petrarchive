@@ -14,6 +14,8 @@ There are many many Petr stickers. This project is an atempt to catalog Petrs an
 
 The main website is stored on my github page (its still public) because Im broke and if I host it on an Org then I have to pay for Vercel...
 
+<img src="public/petrarchive.gif" height="500px">
+
 <!--
 
 **Here are some ideas to get you started:**
